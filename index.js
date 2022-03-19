@@ -33,11 +33,19 @@ if (isMobile.any()) {
   let menuArrows = document.querySelectorAll('.menu__arrow');
   if (menuArrows.length > 0) {
     for (let index = 0; index < menuArrows.length; index++) {
+
       const menuArrow = menuArrows[index];
       menuArrow.addEventListener("click", function (e) {
-        // if (menuArrows.parentElement.classList.contains('_active')) {
-        //   menuArrows.parentElement.classList.remove('_active');
-        // }
+        if (menuArrow.parentElement.classList.contains('_active')) {
+          menuArrow.parentElement.classList.remove('_active');
+          return;
+        }
+
+        for (let i = 0; i < menuArrows.length; i++) {
+          if (menuArrows[i].parentElement.classList.contains('_active')) {
+            menuArrows[i].parentElement.classList.remove('_active');
+          }
+        }
 
         menuArrow.parentElement.classList.toggle('_active');
       })
