@@ -714,12 +714,12 @@ body._pc .menu__downlink:hover {
 
 body._touch .menu__arrow {
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
   top: 50%;
   left: 0;
-  -webkit-transform: translate3d(-25px, -50%, 0) rotate(45deg);
-          transform: translate3d(-25px, -50%, 0) rotate(45deg);
+  -webkit-transform: translate3d(-20px, -50%, 0) rotate(45deg);
+          transform: translate3d(-20px, -50%, 0) rotate(45deg);
   -webkit-transform-origin: center;
           transform-origin: center;
   -webkit-transition: -webkit-transform 0.15s linear;
@@ -730,7 +730,7 @@ body._touch .menu__arrow {
 
 body._touch .menu__arrow::after {
   content: "";
-  width: 16px;
+  width: 12px;
   height: 5px;
   position: absolute;
   top: 0;
@@ -746,7 +746,7 @@ body._touch .menu__arrow::after {
 body._touch .menu__arrow::before {
   content: "";
   width: 5px;
-  height: 16px;
+  height: 12px;
   position: absolute;
   top: 0;
   right: 0;
@@ -764,10 +764,15 @@ body._touch li._active .menu__sub-list {
 }
 
 body._touch li._active .menu__arrow {
-  -webkit-transform: translate3d(-25px, -80%, 0) rotate(135deg);
-          transform: translate3d(-25px, -80%, 0) rotate(135deg);
+  -webkit-transform: translate3d(-20px, -50%, 0) rotate(135deg);
+          transform: translate3d(-20px, -50%, 0) rotate(135deg);
   -webkit-transform-origin: center;
           transform-origin: center;
+}
+
+body._touch li._inactive .menu__sub-list {
+  -webkit-transform: scale3d(0, 0, 0);
+          transform: scale3d(0, 0, 0);
 }
 
 .article__link img {

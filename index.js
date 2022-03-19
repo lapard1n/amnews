@@ -35,6 +35,10 @@ if (isMobile.any()) {
     for (let index = 0; index < menuArrows.length; index++) {
       const menuArrow = menuArrows[index];
       menuArrow.addEventListener("click", function (e) {
+        // if (menuArrows.parentElement.classList.contains('_active')) {
+        //   menuArrows.parentElement.classList.remove('_active');
+        // }
+
         menuArrow.parentElement.classList.toggle('_active');
       })
     }
