@@ -200,6 +200,61 @@ body {
   flex-flow: column nowrap;
   flex: 1 1 auto;
   overflow: hidden;
+  position: relative;
+
+  &__link-up {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    bottom: -100px;
+    right: 0;
+    z-index: 99;
+    opacity: 0.75;
+    background: #FFFFFF;
+    border: {
+      radius: 50%;
+      style: solid;
+      width: 3px;
+      color: #000000;
+    }
+    transform: translate3d(-80%, -80%, 0);
+    transform-origin: center;
+    transition: bottom 0.15s linear;
+  }
+  &__link-arrow {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -30%, 0) rotate(45deg);
+    transform-origin: center;
+    transition: top 0.15s linear;
+    &::after {
+      content: "";
+      width: 20px;
+      height: 6px;
+      position: absolute;
+      background: #000000;
+      border-radius: 15px;
+      transform-origin: center;
+    }
+    &::before {
+      content: "";
+      width: 6px;
+      height: 20px;
+      position: absolute;
+      background: #000000;
+      border-radius: 15px;
+      transform-origin: center;
+    }
+  }
+  &__link-up:hover &__link-arrow:first-child {
+    top: 35%;
+  }
+  &__link-up:hover &__link-arrow:last-child {
+    top: 65%;
+  }
 }
 
 .article {
@@ -582,9 +637,9 @@ body {
   }
 }
 
-//===============//
-// JS TOUCH CODE //
-//===============//
+//==================//
+// CSS FOR JS  CODE //
+//==================//
 
 body._pc{
   .menu__uplink{
@@ -603,33 +658,6 @@ body._pc{
 }
 
 body._touch {
-  // .menu__arrow {
-  //   display: block;
-  //   width: 18px;
-  //   height: 18px;
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 0;
-  //   transform: translate3d(-25px, -50%, 0);
-  //   background-color: #000000;
-  //   border-radius: 50%;
-  //   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75);
-  //   transition: background-color 0.15s linear;
-  //   &::after {
-  //     content: "";
-  //     display: block;
-  //     width: 8px;
-  //     height: 8px;
-  //     position: absolute;
-  //     top: 50%;
-  //     left: 50%;
-  //     transform: translate3d(-50%, -50%, 0);
-  //     background-color: #FFFFFF;
-  //     border-radius: 50%;
-  //     box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.75);
-  //     transition: background-color 0.15s linear;
-  //   }
-  // }
   .menu__arrow {
     position: absolute;
     width: 12px;
@@ -674,18 +702,10 @@ body._touch {
       transform-origin: center;
     }
   }
-
-  li._inactive {
-    .menu__sub-list {
-      transform: scale3d(0, 0, 0);
-    }
-  }
 }
-.article__link {
-  img {
-    display: inline;
-    fill: #FFFFFF;
-  }
+
+.main__link-up._show {
+  bottom: 0;
 }
 
 @import "./queries";
