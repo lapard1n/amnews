@@ -104,7 +104,7 @@ function trackScroll(e) {
   }
 }
 
-// ?
+// ? ПРОПИСВАЮ ПЛАВНУЮ ПРОВЕКУ ВВЕРХ ПРИ НАЖАТИИ НА ПОЯВИВШУЮСЯ КНОПКУ
 goToTopBtn.addEventListener('click', backToTop);
 function backToTop(e) {
   e.preventDefault();

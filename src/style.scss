@@ -22,7 +22,7 @@ body {
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
-  background-image: url(../src/img/large-triangles.svg);
+  background-image: url(../img/large-triangles.svg);
 }
 
 //================//
@@ -452,13 +452,13 @@ body {
     }
 
     #like {
-      background: url(../src/img/chevron-up.svg) no-repeat;
+      background: url(../img/chevron-up.svg) no-repeat;
       background-size: 20px;
       transform: translateY(1px);
     }
 
     #dislike {
-      background: url(../src/img/chevron-down.svg) no-repeat;
+      background: url(../img/chevron-down.svg) no-repeat;
       background-size: 20px;
       transform: translateY(1px);
     }

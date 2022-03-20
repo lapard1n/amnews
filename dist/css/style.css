@@ -1,30 +1,30 @@
 @font-face {
   font-family: "Fredoka";
-  src: url(../src/fonts/Fredoka-Light.ttf) format("truetype");
+  src: url(../fonts/Fredoka-Light.ttf) format("truetype");
   font-weight: 300;
 }
 
 @font-face {
   font-family: "Fredoka";
-  src: url(../src/fonts/Fredoka-Regular.ttf) format("truetype");
+  src: url(../fonts/Fredoka-Regular.ttf) format("truetype");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Fredoka";
-  src: url(../src/fonts/Fredoka-Medium.ttf) format("truetype");
+  src: url(../fonts/Fredoka-Medium.ttf) format("truetype");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "Fredoka";
-  src: url(../src/fonts/Fredoka-SemiBold.ttf) format("truetype");
+  src: url(../fonts/Fredoka-SemiBold.ttf) format("truetype");
   font-weight: 600;
 }
 
 @font-face {
   font-family: "Fredoka";
-  src: url(../src/fonts/Fredoka-Bold.ttf) format("truetype");
+  src: url(../fonts/Fredoka-Bold.ttf) format("truetype");
   font-weight: 700;
 }
 
@@ -53,7 +53,7 @@ body a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  background-image: url(../src/img/large-triangles.svg);
+  background-image: url(../img/large-triangles.svg);
 }
 
 .header {
@@ -563,14 +563,14 @@ body a {
 }
 
 .article__panel #like {
-  background: url(../src/img/chevron-up.svg) no-repeat;
+  background: url(../img/chevron-up.svg) no-repeat;
   background-size: 20px;
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
 }
 
 .article__panel #dislike {
-  background: url(../src/img/chevron-down.svg) no-repeat;
+  background: url(../img/chevron-down.svg) no-repeat;
   background-size: 20px;
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
@@ -879,3 +879,4 @@ body._touch li._active .menu__arrow {
     background: rgba(255, 228, 192, 0.9);
   }
 }
+/*# sourceMappingURL=style.css.map */
