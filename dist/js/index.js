@@ -1,6 +1,9 @@
 "use strict"
 
-// ! ОБНАРУЖЕНИЕ МОБИЛЬНХ УСТРОЙСТВ
+// TODO СКИДЫВАЮ КЛАСС ПРЕД-ЗАГРУЗКИ ДЛЯ СКИПА АНИМАЦИИ
+document.querySelector('.preload').classList.remove('preload');
+
+// TODO ОБНАРУЖЕНИЕ МОБИЛЬНХ УСТРОЙСТВ
 const isMobile = {
   Android: function () {
     return navigator.userAgent.match(/Android/i);
@@ -28,7 +31,7 @@ const isMobile = {
   },
 }
 
-// ! СКРИПТ ДЛЯ РАЗДЕЛЕНИЯ ПО ТИПУ УСТРОЙСТВ
+// TODO СКРИПТ ДЛЯ РАЗДЕЛЕНИЯ ПО ТИПУ УСТРОЙСТВ
 if (isMobile.any()) {
   document.body.classList.add('_touch');
 
@@ -65,7 +68,7 @@ if (isMobile.any()) {
   document.body.classList.add('_pc');
 }
 
-// ! ПРОКРУТКА ПРИ КЛИКЕ
+// TODO ПРОКРУТКА ПРИ КЛИКЕ
 const menuAnchors = document.querySelectorAll('a[data-goto]');
 
 for (let menuAnchor of menuAnchors) {
@@ -84,7 +87,7 @@ for (let menuAnchor of menuAnchors) {
   })
 }
 
-// ! КНОПКА ВОЗВРАЩЕНИЯ НАВЕРХ
+// TODO КНОПКА ВОЗВРАЩЕНИЯ НАВЕРХ
 const goToTopBtn = document.querySelector('.main__link-up');
 const header = document.querySelector('.header');
 
@@ -104,7 +107,7 @@ function trackScroll(e) {
   }
 }
 
-// ? ПРОПИСВАЮ ПЛАВНУЮ ПРОВЕКУ ВВЕРХ ПРИ НАЖАТИИ НА ПОЯВИВШУЮСЯ КНОПКУ
+// TODO ПРОПИСВАЮ ПЛАВНУЮ ПРОКРУТКУ ВВЕРХ ПРИ НАЖАТИИ НА ПОЯВИВШУЮСЯ КНОПКУ
 goToTopBtn.addEventListener('click', backToTop);
 function backToTop(e) {
   e.preventDefault();
@@ -112,5 +115,19 @@ function backToTop(e) {
   header.scrollIntoView({
     behavior: 'smooth',
     block: 'start'
+  })
+}
+
+// TODO ДОБАВЛЯЮ HR ЭЛЕМЕНТ В НАЧАЛО СПИСКА SUB-LIST НА ЭКРАНАХ ДО 768
+if (document.documentElement.clientWidth < 768) {
+
+  let hrElement = document.querySelectorAll('.menu__sub-list');
+  hrElement.forEach(i => {
+    let newUpHr = document.createElement('hr');
+    i.insertAdjacentElement('afterbegin', newUpHr);
+  })
+  hrElement.forEach(i => {
+    let newUpHr = document.createElement('hr');
+    i.insertAdjacentElement('beforeend', newUpHr);
   })
 }
