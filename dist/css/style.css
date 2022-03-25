@@ -37,12 +37,6 @@ body {
   font-size: 16px;
 }
 
-html a,
-body a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .global-wrapper {
   min-height: 100%;
   width: 100%;
@@ -91,7 +85,7 @@ body a {
   height: 60px;
   display: block;
   position: relative;
-  z-index: 1;
+  z-index: 11;
 }
 
 .header__icon img {
@@ -914,6 +908,8 @@ body._touch .menu__downlink:hover {
     left: 0;
     z-index: 9;
     background: rgba(0, 0, 0, 0.6);
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
   }
   .menu__list {
     display: -webkit-box;
@@ -929,6 +925,8 @@ body._touch .menu__downlink:hover {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
   .menu__uplink {
     max-height: 40px;

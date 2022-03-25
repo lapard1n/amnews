@@ -1,6 +1,5 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0-modified | 20110126
-   License: none (public domain)
+/*
+ * MAIN RESET SETTINGS
 */
 
 html, body, div, span, applet, object, iframe,
@@ -24,12 +23,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-/* make sure to set some focus styles for accessibility */
-:focus {
-    outline: 0;
-}
+/*
+ * HTML5 display-role reset for older browsers
+ */
 
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -80,7 +77,7 @@ textarea {
     resize: vertical;
 }
 
-/**
+/*
  * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
 
@@ -93,7 +90,7 @@ video {
     max-width: 100%;
 }
 
-/**
+/*
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
@@ -103,7 +100,7 @@ audio:not([controls]) {
     height: 0;
 }
 
-/**
+/*
  * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
  * Known issue: no IE 6 support.
  */
@@ -112,7 +109,7 @@ audio:not([controls]) {
     display: none;
 }
 
-/**
+/*
  * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
  *    `em` units.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -125,24 +122,7 @@ html {
     -ms-text-size-adjust: 100%; /* 2 */
 }
 
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
-
-a:focus {
-    outline: thin dotted;
-}
-
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
-
-a:active,
-a:hover {
-    outline: 0;
-}
-
-/**
+/*
  * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
  * 2. Improve image quality when scaled in IE 7.
  */
@@ -152,7 +132,7 @@ img {
     -ms-interpolation-mode: bicubic; /* 2 */
 }
 
-/**
+/*
  * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
  */
 
@@ -160,7 +140,7 @@ figure {
     margin: 0;
 }
 
-/**
+/*
  * Correct margin displayed oddly in IE 6/7.
  */
 
@@ -168,7 +148,7 @@ form {
     margin: 0;
 }
 
-/**
+/*
  * Define consistent border, margin, and padding.
  */
 
@@ -178,7 +158,7 @@ fieldset {
     padding: 0.35em 0.625em 0.75em;
 }
 
-/**
+/*
  * 1. Correct color not being inherited in IE 6/7/8/9.
  * 2. Correct text not wrapping in Firefox 3.
  * 3. Correct alignment displayed oddly in IE 6/7.
@@ -191,7 +171,7 @@ legend {
     *margin-left: -7px; /* 3 */
 }
 
-/**
+/*
  * 1. Correct font size not being inherited in all browsers.
  * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
  *    and Chrome.
@@ -208,7 +188,7 @@ textarea {
     *vertical-align: middle; /* 3 */
 }
 
-/**
+/*
  * Address Firefox 3+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
@@ -218,7 +198,7 @@ input {
     line-height: normal;
 }
 
-/**
+/*
  * Address inconsistent `text-transform` inheritance for `button` and `select`.
  * All other form control elements do not inherit `text-transform` values.
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
@@ -230,7 +210,7 @@ select {
     text-transform: none;
 }
 
-/**
+/*
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
  *    and `video` controls.
  * 2. Correct inability to style clickable `input` types in iOS.
@@ -249,7 +229,7 @@ input[type="submit"] {
     *overflow: visible;  /* 4 */
 }
 
-/**
+/*
  * Re-set default cursor for disabled elements.
  */
 
@@ -258,7 +238,7 @@ html input[disabled] {
     cursor: default;
 }
 
-/**
+/*
  * 1. Address box sizing set to content-box in IE 8/9.
  * 2. Remove excess padding in IE 8/9.
  * 3. Remove excess padding in IE 7.
@@ -273,7 +253,7 @@ input[type="radio"] {
     *width: 13px; /* 3 */
 }
 
-/**
+/*
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
@@ -286,7 +266,7 @@ input[type="search"] {
     box-sizing: content-box;
 }
 
-/**
+/*
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
@@ -296,7 +276,7 @@ input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
 }
 
-/**
+/*
  * Remove inner padding and border in Firefox 3+.
  */
 
@@ -306,7 +286,7 @@ input::-moz-focus-inner {
     padding: 0;
 }
 
-/**
+/*
  * 1. Remove default vertical scrollbar in IE 6/7/8/9.
  * 2. Improve readability and alignment in all browsers.
  */
@@ -316,7 +296,7 @@ textarea {
     vertical-align: top; /* 2 */
 }
 
-/**
+/*
  * Remove most spacing between table cells.
  */
 
@@ -365,3 +345,18 @@ textarea {
     padding: 0.2em 0;
 }
 
+/*
+ * make sure to set some focus styles for accessibility
+ */
+
+:active,
+:hover,
+:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

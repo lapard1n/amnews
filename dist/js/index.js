@@ -97,12 +97,12 @@ function trackScroll(e) {
   e.preventDefault();
   let scrolled = window.pageYOffset;
   // ? ПОЛУЧАЮ ВЫСОТУ HEADER И ВЫЧИТАЮ 1 ДЛЯ ПОЯВЛЕНИЯ КНОПКИ ПРИ КЛИКЕ НА ANCHOR
-  let headerHeight = header.clientHeight - 1;
+  let topIndent = 99;
 
-  if (scrolled > headerHeight) {
+  if (scrolled > topIndent) {
     goToTopBtn.classList.add('_show');
   }
-  if (scrolled < headerHeight) {
+  if (scrolled < topIndent) {
     goToTopBtn.classList.remove('_show');
   }
 }
