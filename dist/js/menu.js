@@ -1,7 +1,10 @@
 "use strict"
 
 // TODO СКИДЫВАЮ КЛАСС ПРЕД-ЗАГРУЗКИ ДЛЯ СКИПА АНИМАЦИИ
-document.querySelector('.preload').classList.remove('preload');
+setTimeout(function () {
+  document.querySelector('.preload').classList.remove('preload');
+}, 250)
+
 
 // TODO ОБНАРУЖЕНИЕ МОБИЛЬНХ УСТРОЙСТВ
 const isMobile = {
@@ -60,7 +63,7 @@ if (isMobile.any()) {
 
         // ? ОТКРЫТИЕ НУЖНОГО TOGGLE МЕНЮ ПО КЛИКУ
         menuArrow.parentElement.classList.toggle('_active');
-      })
+      }, false)
     }
   }
 
@@ -78,18 +81,26 @@ for (let menuAnchor of menuAnchors) {
     // ? ССЫЛКА НА ОБЪЕКТЫ ПО DATA-GOTO
     const dataSet = document.querySelector(menuAnchor.dataset.goto);
 
+    // ? ПРОВЕРКА ОТКРЫТОГО МЕНЮ
+    if (burgerMenu.classList.contains('_active')) {
+      document.body.classList.remove('_lock');
+      burgerMenu.classList.remove('_active');
+      menuDropout.classList.remove('_active');
+    }
+
     // ? ПЛАВНЫЙ СКРОЛЛ К КОНКРЕТНОМУ ЭЛЕМЕНТУ
     dataSet.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     })
-  })
+  }, false)
 }
 
 // TODO КНОПКА ВОЗВРАЩЕНИЯ НАВЕРХ
 const goToTopBtn = document.querySelector('.main__link-up');
 const header = document.querySelector('.header');
-window.addEventListener('scroll', trackScroll);
+window.addEventListener('scroll', trackScroll, false);
+
 function trackScroll(e) {
   e.preventDefault();
   let scrolled = window.pageYOffset;
@@ -105,7 +116,8 @@ function trackScroll(e) {
 }
 
 // TODO ПРОПИСВАЮ ПЛАВНУЮ ПРОКРУТКУ ВВЕРХ ПРИ НАЖАТИИ НА ПОЯВИВШУЮСЯ КНОПКУ
-goToTopBtn.addEventListener('click', backToTop);
+goToTopBtn.addEventListener('click', backToTop, false);
+
 function backToTop(e) {
   e.preventDefault();
 

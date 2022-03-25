@@ -2,6 +2,7 @@
   .article {
     &:nth-child(odd) {
       background: none;
+
       &::before {
         content: "";
         width: 100%;
@@ -16,6 +17,7 @@
 
     &:nth-child(even) {
       background: none;
+
       &::before {
         content: "";
         width: 100%;
@@ -42,10 +44,6 @@
   }
 }
 
-@media (min-width: 768) {
-
-}
-
 @media (max-width: 767.98px) {
   .menu {
     display: flex;
@@ -61,6 +59,7 @@
     background: rgba(0, 0, 0, 0.6);
     transform: translateY(-100%);
     transition: transform 0.4s;
+
     &._active {
       transform: translateY(-0);
     }
@@ -104,9 +103,11 @@
       transform-origin: none;
       background: none;
       border-right: none;
+
       hr:first-child {
         margin-top: 18px;
       }
+
       hr:last-child {
         margin-bottom: 18px;
       }
@@ -195,10 +196,12 @@
     li._active {
       margin: 0;
       max-height: 100%;
+
       .menu__sub-list {
         max-height: 100%;
         transform: unset;
       }
+
       .menu__arrow {
         transform: translateX(-50%) rotate(135deg);
       }
