@@ -1,5 +1,13 @@
 @import "./fonts";
 
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
 html,
 body {
   height: 100%;
@@ -10,6 +18,10 @@ body {
     weight: 400;
     size: 16px;
   }
+}
+
+body._lock {
+  overflow: hidden;
 }
 
 .global-wrapper {
@@ -220,7 +232,11 @@ body {
     transform: translate3d(-80%, -80%, 0);
     transform-origin: center;
     transition: bottom 0.15s linear;
+    &._show {
+      bottom: 0;
+    }
   }
+
   &__link-arrow {
     width: 20px;
     height: 20px;
@@ -249,9 +265,11 @@ body {
       transform-origin: center;
     }
   }
+
   &__link-up:hover &__link-arrow:first-child {
     top: 35%;
   }
+
   &__link-up:hover &__link-arrow:last-child {
     top: 65%;
   }
@@ -705,18 +723,6 @@ body._touch {
   .menu__downlink:hover {
     background-color: #E5A8A8;
   }
-}
-
-.main__link-up._show {
-  bottom: 0;
-}
-
-.preload * {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-  transition: none !important;
 }
 
 @import "./queries";

@@ -70,7 +70,6 @@ if (isMobile.any()) {
 
 // TODO ПРОКРУТКА ПРИ КЛИКЕ
 const menuAnchors = document.querySelectorAll('a[data-goto]');
-
 for (let menuAnchor of menuAnchors) {
   menuAnchor.addEventListener('click', function (e) {
     // ? ДЕЙСТВИЕ ПО УМОЛЧАНИЮ НЕ ДОЛЖНО ВЫПОЛНЯТЬСЯ
@@ -90,8 +89,6 @@ for (let menuAnchor of menuAnchors) {
 // TODO КНОПКА ВОЗВРАЩЕНИЯ НАВЕРХ
 const goToTopBtn = document.querySelector('.main__link-up');
 const header = document.querySelector('.header');
-
-// ? СОЗДАЮ ОТБРАБОТЧИК СОБЫТИЙ ДЛЯ ОТСЛЕЖИВАНИЯ СКРОЛЛИНГА СТРАНИЦЫ
 window.addEventListener('scroll', trackScroll);
 function trackScroll(e) {
   e.preventDefault();
@@ -131,3 +128,12 @@ if (document.documentElement.clientWidth < 768) {
     i.insertAdjacentElement('beforeend', newUpHr);
   })
 }
+
+// TODO СОЗДАЮ ТО САМОЕ ПРЕСЛОВУТОЕ БУРГЕР-МЕНЮ!
+const burgerMenu = document.querySelector('.burger-menu');
+const menuDropout = document.querySelector('.menu');
+burgerMenu.addEventListener('click', function (e) {
+  document.body.classList.toggle('_lock');
+  burgerMenu.classList.toggle('_active');
+  menuDropout.classList.toggle('_active');
+}, false)

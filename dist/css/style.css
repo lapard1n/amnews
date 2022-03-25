@@ -28,6 +28,11 @@
   font-weight: 700;
 }
 
+.preload * {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
 html,
 body {
   height: 100%;
@@ -35,6 +40,10 @@ body {
   font-family: "Fredoka";
   font-weight: 400;
   font-size: 16px;
+}
+
+body._lock {
+  overflow: hidden;
 }
 
 .global-wrapper {
@@ -282,6 +291,10 @@ body {
           transform-origin: center;
   -webkit-transition: bottom 0.15s linear;
   transition: bottom 0.15s linear;
+}
+
+.main__link-up._show {
+  bottom: 0;
 }
 
 .main__link-arrow {
@@ -840,15 +853,6 @@ body._touch .menu__downlink:hover {
   background-color: #E5A8A8;
 }
 
-.main__link-up._show {
-  bottom: 0;
-}
-
-.preload * {
-  -webkit-transition: none !important;
-  transition: none !important;
-}
-
 @media (min-width: 1600px) {
   .article:nth-child(odd) {
     background: none;
@@ -910,6 +914,14 @@ body._touch .menu__downlink:hover {
     background: rgba(0, 0, 0, 0.6);
     -webkit-transform: translateY(-100%);
             transform: translateY(-100%);
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+    transition: transform 0.4s, -webkit-transform 0.4s;
+  }
+  .menu._active {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   .menu__list {
     display: -webkit-box;
@@ -925,8 +937,8 @@ body._touch .menu__downlink:hover {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
   .menu__uplink {
     max-height: 40px;
@@ -935,8 +947,8 @@ body._touch .menu__downlink:hover {
     color: #FFFFFF;
     text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75);
     overflow-y: hidden;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     font-weight: 600;
     font-size: 3rem;
   }
@@ -947,8 +959,8 @@ body._touch .menu__downlink:hover {
     max-height: 0;
     position: relative;
     overflow: hidden;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
     top: 0;
     left: 0;
     -webkit-transform: unset;
@@ -983,57 +995,44 @@ body._touch .menu__downlink:hover {
     border-radius: 25px;
   }
   .burger-menu {
-    width: 60px;
-    height: 40px;
     display: block;
     position: relative;
     z-index: 11;
     cursor: pointer;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
   }
+  .burger-menu::before, .burger-menu::after,
   .burger-menu span {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    -webkit-transform: translate3d(0, -50%, 0);
-            transform: translate3d(0, -50%, 0);
-    -webkit-transform-origin: center;
-            transform-origin: center;
-    width: 60px;
-    height: 8px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
-  }
-  .burger-menu::before {
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    -webkit-transform-origin: center;
-            transform-origin: center;
+    display: block;
     width: 60px;
     height: 8px;
+    margin: 10px 0;
     background: #FFFFFF;
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
             box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
   }
-  .burger-menu::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-            transform: translate3d(0, -100%, 0);
-    -webkit-transform-origin: center;
-            transform-origin: center;
-    width: 60px;
-    height: 8px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+  .burger-menu._active::before {
+    -webkit-transform: translateY(18px) rotate(135deg);
+            transform: translateY(18px) rotate(135deg);
+  }
+  .burger-menu._active::after {
+    -webkit-transform: translateY(-18px) rotate(-135deg);
+            transform: translateY(-18px) rotate(-135deg);
+  }
+  .burger-menu._active span {
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   body._touch .menu__arrow {
     position: absolute;
