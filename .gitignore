@@ -1,0 +1,8 @@
+# ПАПКА С РЕЗЕРВНОЙ КОПИЕЙ ПРОЕКТА, НА СЛУЧАЙ ПИЗДЕЦА!
+backup
+
+# МНОГОТОННЫЕ ЗАВИСИМОСТИ NPM
+node_modules
+
+# ИНФОРМАЦИЯ О РАБОТЕ package-lock.json
+package-lock-info.md

@@ -1,0 +1,26 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "my javascript sandbox",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lapard1n/sandBox.git"
+  },
+  "author": "lapard1n",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lapard1n/sandBox/issues"
+  },
+  "homepage": "https://github.com/lapard1n/sandBox#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.9",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0"
+  }
+}
