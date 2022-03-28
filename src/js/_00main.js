@@ -5,7 +5,6 @@ setTimeout(function () {
   document.querySelector('.preload').classList.remove('preload');
 }, 250)
 
-
 // TODO ОБНАРУЖЕНИЕ МОБИЛЬНХ УСТРОЙСТВ
 const isMobile = {
   Android: function () {
@@ -148,4 +147,4 @@ burgerMenu.addEventListener('click', function (e) {
   document.body.classList.toggle('_lock');
   burgerMenu.classList.toggle('_active');
   menuDropout.classList.toggle('_active');
-}, false)
+}, false);

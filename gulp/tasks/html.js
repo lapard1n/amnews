@@ -1,7 +1,6 @@
-// import fileInclude from "gulp-file-include"; // * ПЛАГИН ПОДКЛЮЧЕНИЯ HTML ФРАГМЕНТОВ
-import webpHtmlNosvg from "gulp-webp-html-nosvg"; // * ПЛАГИН ЗАМЕНЫ ИЗОБРАЖЕНИЙ НА WEBP
-import versionNumber from "gulp-version-number"; // * ПЛАГИН КОНТРОЛЯ ВЕРСИЙ ФАЙЛОВ, ДЛЯ ИЗБЕГАНИЯ ЗАКЕШИРОВАННЫХ...
-import pug from "gulp-pug"; // * СТАРЫЙ ДОБРЫЙ ПУГЕ!
+import webpHtmlNosvg from "gulp-webp-html-nosvg";
+import versionNumber from "gulp-version-number";
+import pug from "gulp-pug";
 
 export const html = () => {
   return app.gulp.src(app.path.src.html)
@@ -9,12 +8,10 @@ export const html = () => {
     // ? НАСТРОЙКА ПЛАГИНА ДЛЯ ОТОБРАЖЕНИЯ ОШИБОК
     .pipe(app.plugins.plumber(
       app.plugins.notify.onError({
-        title: "HTML",
-        message: "ERROR:  <%= error.message %>",
+        title: "html",
+        message: "error:  <%= error.message %>",
       })
     ))
-
-    // .pipe(fileInclude()) // ? ПЛАГИН ДЛЯ СБОРКИ HTML ФАЙЛОВ
 
     // ? СТАРЫЙ ДОБРЫЙ ПУГЕ!!
     .pipe(pug({

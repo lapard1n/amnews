@@ -10,17 +10,30 @@ const srcFolder = './src';
 export const path = {
   dist: {
     html: `${distFolder}/`,
+    css: `${distFolder}/css/`,
+    js: `${distFolder}/js/`,
     files: `${distFolder}/`,
-    cls: `${distFolder}/html`,
   },
   src: {
-    html: [`${srcFolder}/**/*.html`, `!${srcFolder}/html/*.*`],
-    files: [`${srcFolder}/**/*.*`, `!${srcFolder}/html/*.*`],
+    html: `${srcFolder}/*.pug`,
+    scss: `${srcFolder}/scss/style.scss`,
+    js: `${srcFolder}/js/**/*.js`,
+    files: [
+      `${srcFolder}/**/*.*`,
+      `!${srcFolder}/html/**/*.*`,
+      `!${srcFolder}/scss/**/*.*`,
+      `!${srcFolder}/js/**/*.*`,
+      `!${srcFolder}/layout/**/*.*`,
+      `!${srcFolder}/*.pug`
+    ],
   },
   watch: {
-    html: `${srcFolder}/**/*.html`,
+    html: `${srcFolder}/**/*.pug`,
+    scss: `${srcFolder}/scss/**/*.scss`,
+    cssmin: `${distFolder}/css/style.css`,
+    js: `${srcFolder}/js/**/*.js`,
+    jsmin: `${distFolder}/js/app.js`,
     files: `${srcFolder}/**/*.*`,
-    cls: `${distFolder}/html`,
   },
   clean: distFolder,
   distFolder: distFolder,
