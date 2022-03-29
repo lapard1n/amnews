@@ -12,6 +12,8 @@ global.app = {
   path: path,
   gulp: gulp,
   plugins: plugins,
+  //  isBuild: process.argv.includes('--build'), // * app.plugins.gulpIf(app.isBuild, ...)
+  //  isDev: !process.argv.includes('--build'), // * app.plugins.gulpIf(app.isDev, ...)
 }
 
 // ? ИМПОРТ ЗАДАЧ
@@ -23,6 +25,7 @@ import { scss, cssmin } from "./gulp/tasks/scss.js";
 import { js, jsmin } from "./gulp/tasks/js.js";
 import { img } from "./gulp/tasks/img.js";
 import { otfToTtf, ttfToWoff } from "./gulp/tasks/fonts.js";
+import { zip } from "./gulp/tasks/zip.js";
 
 // ? НАБЛЮДАТЕЛЬ ЗА ИЗМЕНЕНИЯМИ В ФАЙЛАХ
 function watcher() {
@@ -43,6 +46,15 @@ const mainTasks = gulp.series(otfToTtf, ttfToWoff, gulp.parallel(copy, html, scs
 
 // ? ПОСТОРОЕНИЕ СЦЕНАРИЕВ ДЛЯ ВЫПОЛНЕНИЯ ЗАДАЧ
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+const gg = gulp.series(reset, mainTasks, zip);
+
+export { gg };
+
+/*
+ * const build = gulp.series(reset, mainTasks);
+ * export { dev };
+ * export { build };
+ */
 
 // ? ВЫПОЛНЕНИЕ СЦЕНАРИЯ ПО УМОЛЧАНИЮ
 gulp.task('default', dev);

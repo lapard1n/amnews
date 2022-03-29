@@ -34,6 +34,7 @@ export const path = {
       `!${srcFolder}/layout/**/*.*`,
       `!${srcFolder}/img/**/*.*`,
       `!${srcFolder}/fonts/**/*.*`,
+      `!${srcFolder}/ignore/**/*.*`,
       `!${srcFolder}/*.pug`
     ],
   },
