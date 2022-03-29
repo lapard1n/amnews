@@ -4,6 +4,7 @@ import notify from "gulp-notify"; // * ПЛАГИН СООБЩЕНИЯ И ПОД
 import browser from "browser-sync"; // * ПЛАГИН ДЛЯ ПОДНЯТИЯ ЛОКАЛЬНОГО СЕРВЕРА
 import sourcemaps from "gulp-sourcemaps"; // * ПЛАГИН ДЛЯ СОЗДАНИЯ КАРТЫ КОМПИЛЯЦИИ
 import rename from "gulp-rename"; // * ПЛАГИН ПЕРЕИМЕНОВЫВАЯ ФАЙЛА
+import newer from "gulp-newer"; // * ПЛАГИН ДЛЯ ПРОВЕРКИ ОБНОВЛЕНИЯ КАРТИНОК
 
 export const plugins = {
   replace: replace,
@@ -12,4 +13,5 @@ export const plugins = {
   browser: browser,
   sourcemaps: sourcemaps,
   rename: rename,
+  newer: newer,
 }
