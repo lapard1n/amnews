@@ -1,0 +1,532 @@
+@import "./fonts"
+
+.preload *
+  -webkit-transition: none !important
+  -moz-transition: none !important
+  -ms-transition: none !important
+  -o-transition: none !important
+  transition: none !important
+
+html,
+body
+  height: 100%
+  background: #FFFFFF
+  font:
+    family: "Fredoka"
+    weight: 400
+    size: 16px
+
+body._lock
+  overflow: hidden
+
+.global-wrapper
+  min-height: 100%
+  width: 100%
+  display: flex
+  flex-flow: column nowrap
+  background-image: url(../img/large-triangles.svg)
+
+/*
+ * HEADER SECTION
+ */
+
+.header
+  width: 100%
+  height: 125px
+  display: flex
+  justify-content: center
+  align-items: center
+
+  &__wrap
+    width: 100%
+    height: 100%
+    max-width: 1100px
+    padding: 25px 50px
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  &__icon
+    width: 60px
+    height: 60px
+    display: block
+    position: relative
+    z-index: 11
+    img
+      width: 100%
+    &::after
+      content: ""
+      display: block
+      width: 75px
+      height: 75px
+      position: absolute
+      top: 50%
+      left: 50%
+      z-index: -1
+      transform: translate3d(-50%, -50%, 0)
+      border-radius: 50%
+      background: #FFFFFF
+      box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25)
+      transition: all 0.5s ease-in-out
+
+    &:hover::after
+      animation-name: bonce
+      animation-duration: 0.5s
+      animation-timing-function: ease-in-out
+      @keyframes bonce
+        from
+          width: 75px
+          height: 75px
+        50%
+          width: 80px
+          height: 80px
+        to
+          width: 75px
+          height: 75px
+
+.menu
+  height: 50%
+  display: flex
+  align-items: center
+  color: #000000
+  z-index: 10
+
+  &__list
+    height: 100%
+    display: flex
+    align-items: center
+    position: relative
+
+  &__uplink
+    margin-right: 40px
+    line-height: 2.25rem
+    letter-spacing: 0.02rem
+    position: relative
+    cursor: pointer
+    font:
+      weight: 600
+      size: 1.75rem
+    &:last-child
+      margin-right: 0
+    & > a
+      transition: color 0.15s linear
+
+  &__sub-list
+    width: max-content
+    display: flex
+    flex-flow: column nowrap
+    align-items: flex-start
+    justify-content: center
+    overflow: hidden
+    position: absolute
+    top: 100%
+    right: 0
+    background: #FFBBBB
+    border-right: 2px solid #E5A8A8
+    pointer-events: all
+    transform: scale3d(0, 0, 0)
+    transform-origin: top right
+    transition: transform 0.15s linear
+    hr
+      width: 100%
+      height: 2px
+      margin: 0
+      background: #E5A8A8
+      border: none
+
+  &__downlink
+    width: 100%
+    padding: 10px 20px
+    margin-right: 0
+    transition: background 0.15s linear
+    font:
+      weight: 500
+      size: 1.25rem
+
+.burger-menu
+  display: none
+
+/*
+ * MAIN SECTION
+ */
+
+.main
+  display: flex
+  flex-flow: column nowrap
+  flex: 1 1 auto
+  overflow: hidden
+  position: relative
+
+  &__link-up
+    position: fixed
+    width: 45px
+    height: 45px
+    bottom: -100px
+    right: 0
+    z-index: 99
+    opacity: 0.75
+    background: #FFFFFF
+    border:
+      radius: 50%
+      style: solid
+      width: 3px
+      color: #000000
+    transform: translate3d(-80%, -80%, 0)
+    transform-origin: center
+    transition: bottom 0.15s linear
+
+    &._show
+      bottom: 0
+
+  &__link-arrow
+    width: 20px
+    height: 20px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate3d(-50%, -30%, 0) rotate(45deg)
+    transform-origin: center
+    transition: top 0.15s linear
+    &::after
+      content: ""
+      width: 20px
+      height: 6px
+      position: absolute
+      background: #000000
+      border-radius: 15px
+      transform-origin: center
+    &::before
+      content: ""
+      width: 6px
+      height: 20px
+      position: absolute
+      background: #000000
+      border-radius: 15px
+      transform-origin: center
+
+  &__link-up:hover &__link-arrow:first-child
+    top: 35%
+  &__link-up:hover &__link-arrow:last-child
+    top: 65%
+
+.article
+  width: 100%
+  min-height: 300px
+  display: flex
+  justify-content: center
+  flex: 1 1 auto
+  position: relative
+  z-index: 1
+  &:nth-child(1)
+    background: rgba(191, 255, 240, 0.9)
+  &:nth-child(2)
+    background: rgba(240, 255, 194, 0.9)
+  &:nth-child(3)
+    background: rgba(255, 228, 192, 0.9)
+
+  &__wrap
+    width: 100%
+    max-width: 1100px
+    padding: 25px 50px
+    display: flex
+    flex-flow: column nowrap
+    justify-content: space-between
+    position: relative
+    overflow: hidden
+
+  &__title
+    width: -webkit-max-content
+    width: -moz-max-content
+    width: max-content
+    margin-bottom: 10px
+    position: relative
+    letter-spacing: 0.02rem
+    font:
+      weight: 500
+      size: 1.75rem
+    &-img
+      width: 40px
+      position: absolute
+      top: 50%
+      transform: translate3d(25px, -50%, 0) rotate(-25deg)
+    &::after
+      content: ""
+      width: 33.3%
+      height: 2px
+      display: block
+      position: absolute
+      bottom: -5px
+      left: 0
+      background: #000000
+
+  &__content
+    padding: 15px 25px
+    display: flex
+    align-items: flex-start
+
+  &__info
+    margin-right: 15px
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    align-items: center
+
+  &__image
+    height: 125px
+    width: 125px
+    border-radius: 10px
+    margin-bottom: 5px
+    position: relative
+    overflow: hidden
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25)
+    img
+      width: 100%
+
+  &__panel
+    display: flex
+    justify-content: center
+    align-items: center
+    input
+      width: 20px
+      height: 20px
+      background: none
+      border: none
+    label
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: pointer
+      &:first-child
+        margin-right: 5px
+
+      &:hover #like
+        animation-name: foo
+        animation-duration: 0.5s
+        animation-timing-function: ease-in-out
+        @keyframes foo
+          from
+            transform: translateY(1px)
+          50%
+            transform: translateY(-1px)
+          to
+            transform: translateY(1px)
+
+      &:hover #dislike
+        animation-name: bar
+        animation-duration: 0.5s
+        animation-timing-function: ease-in-out
+        @keyframes bar
+          from
+            transform: translateY(1px)
+          50%
+            transform: translateY(5px)
+          to
+            transform: translateY(1px)
+    font:
+      weight: 300
+      size: 1rem
+
+    #like
+      background: url(../img/chevron-up.svg) no-repeat
+      background-size: 20px
+      transform: translateY(1px)
+
+    #dislike
+      background: url(../img/chevron-down.svg) no-repeat
+      background-size: 20px
+      transform: translateY(1px)
+
+  &__text
+    position: relative
+    margin: 0 10px
+    text-indent: 1.875rem
+    line-height: 1.3rem
+    font:
+      weight: 400
+      size: 1.125rem
+    &:last-child
+      margin-right: 0
+    p
+      margin-bottom: 15px
+      &:last-child
+        margin-bottom: 0
+
+  &__author
+    position: absolute
+    bottom: -25px
+    left: -25px
+    letter-spacing: 0.02rem
+    font:
+      weight: 500
+      size: 1.25rem
+      style: italic
+
+  .bookmark
+    width: 50px
+    position: absolute
+    top: 0
+    right: 110px
+    transform: translateX(50%)
+    transform: translateY(-25px)
+    transition: transform 0.15s linear
+
+  &__link
+    position: relative
+    align-self: flex-end
+    transition: color 0.15s linear
+    font:
+      weight: 500
+      size: 1.25rem
+
+    img
+      width: 25px
+      height: 25px
+      transform: translateX(-5px)
+      transition: width 0.15s linear
+
+    &::after
+      content: ""
+      width: 0
+      height: 2px
+      display: block
+      position: absolute
+      bottom: -5px
+      left: 0
+      background: #000000
+      transition: width 0.15s linear
+
+    &:hover
+      &::after
+        width: 100%
+      img
+        width: 20px
+      & ~ .bookmark
+        transform: translateY(0px)
+
+/*
+ * FOOTER SECTION
+ */
+
+.footer
+  width: 100%
+  height: 100px
+  display: flex
+  justify-content: center
+  align-items: center
+
+  &__wrap
+    width: 100%
+    max-width: 1100px
+    padding: 25px 50px
+    display: flex
+    justify-content: space-between
+
+  &__link
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    transition: color 0.15s linear
+    &:nth-child(odd)
+      font:
+        weight: 600
+        size: 1.625rem
+      &::after
+        content: ""
+        width: 100%
+        height: 2px
+        display: block
+        position: absolute
+        bottom: 0
+        left: 0
+        background-color: #000000
+        opacity: 0
+        transition: background-color 0.15s linear
+        transition: opacity 0.15s linear
+
+    &:nth-child(even)
+      font:
+        weight: 700
+        size: 2rem
+      &::after
+        content: ""
+        width: 100%
+        height: 2px
+        display: block
+        position: absolute
+        bottom: -10px
+        left: 0
+        background-color: rgba(0, 0, 0, 0.25)
+        opacity: 0
+        transition: background-color 0.15s linear
+        transition: opacity 0.15s linear
+
+    &:hover
+      text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5)
+      color: #FFFFFF
+      &::after
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25)
+        background-color: #FFFFFF
+        opacity: 1
+        transition: opacity 0.15s linear
+        transition: background-color 0.15s linear
+
+/*
+ * CSS FOR JS  CODE
+ */
+
+body._pc
+  .menu__uplink
+    &:hover > a
+      text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75)
+      color: #FFFFFF
+    &:hover .menu__sub-list
+      transform: scale3d(1, 1, 1)
+
+  .menu__downlink:hover
+    background-color: #E5A8A8
+
+body._touch
+  .menu__arrow
+    position: absolute
+    width: 12px
+    height: 12px
+    top: 12px
+    left: -20px
+    transform: rotate(45deg)
+    transform-origin: center
+    transition: transform 0.15s linear
+    &::after
+      content: ""
+      width: 12px
+      height: 5px
+      position: absolute
+      top: 0
+      right: 0
+      background: #000000
+      border-radius: 15px
+      transform-origin: center
+      transition: background 0.15s linear
+    &::before
+      content: ""
+      width: 5px
+      height: 12px
+      position: absolute
+      top: 0
+      right: 0
+      background: #000000
+      border-radius: 15px
+      transform-origin: center
+      transition: background 0.15s linear
+
+  li._active
+    .menu__sub-list
+      transform: scale3d(1, 1, 1)
+    .menu__arrow
+      transform: rotate(135deg)
+      transform-origin: center
+
+  .menu__downlink:hover
+    background-color: #E5A8A8
+
+@import "./queries"

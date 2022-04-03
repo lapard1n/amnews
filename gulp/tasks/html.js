@@ -42,12 +42,12 @@ export const html = () => {
         }
       })
     )
-
-    .pipe(app.plugins.rename({ basename: "intermediate" }))
     .pipe(app.gulp.dest(app.path.dist.html))
 
-    // ? ФИНАЛЬНАЯ ФИНИФИКАЦИЯ HTML
-    .pipe(app.plugins.rename({ basename: "index" }))
+    // ? ФИНИФИКАЦИЯ HTML
+    .pipe(app.plugins.rename({
+      extname: ".min.html"
+    }))
     .pipe(gulpHtmlmin({
       collapseWhitespace: true,
       removeComments: true,

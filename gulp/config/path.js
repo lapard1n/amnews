@@ -18,32 +18,24 @@ export const path = {
   },
   src: {
     html: `${srcFolder}/*.pug`,
-    scss: [
-      `${srcFolder}/scss/**/*.scss`,
-      `${srcFolder}/sass/**/*.sass`,
-    ],
+    scss: `${srcFolder}/sass/**/*.sass`,
     js: `${srcFolder}/js/**/*.js`,
     img: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,ico}`,
     svg: `${srcFolder}/img/**/*.svg`,
     files: [
       `${srcFolder}/**/*.*`,
-      `!${srcFolder}/scss/**/*.*`,
+      `!${srcFolder}/*.pug`,
       `!${srcFolder}/sass/**/*.*`,
       `!${srcFolder}/js/**/*.*`,
       `!${srcFolder}/layout/**/*.*`,
       `!${srcFolder}/img/**/*.*`,
       `!${srcFolder}/fonts/**/*.*`,
-      `!${srcFolder}/ignore/**/*.*`,
-      `!${srcFolder}/*.pug`
     ],
   },
   watch: {
     html: `${srcFolder}/**/*.pug`,
     htmlmin: `${distFolder}/index.html`,
-    scss: [
-      `${srcFolder}/scss/**/*.scss`,
-      `${srcFolder}/sass/**/*.sass`,
-    ],
+    scss: `${srcFolder}/sass/**/*.sass`,
     cssmin: `${distFolder}/css/style.css`,
     js: `${srcFolder}/js/**/*.js`,
     jsmin: `${distFolder}/js/app.js`,
