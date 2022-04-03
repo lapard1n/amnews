@@ -56,4 +56,5 @@ export const cssmin = () => {
     }))
 
     .pipe(app.gulp.dest(app.path.dist.css))
+    .pipe(app.plugins.browser.stream())
 }

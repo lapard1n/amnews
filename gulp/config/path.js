@@ -27,7 +27,6 @@ export const path = {
     svg: `${srcFolder}/img/**/*.svg`,
     files: [
       `${srcFolder}/**/*.*`,
-      `!${srcFolder}/html/**/*.*`,
       `!${srcFolder}/scss/**/*.*`,
       `!${srcFolder}/sass/**/*.*`,
       `!${srcFolder}/js/**/*.*`,
@@ -40,6 +39,7 @@ export const path = {
   },
   watch: {
     html: `${srcFolder}/**/*.pug`,
+    htmlmin: `${distFolder}/index.html`,
     scss: [
       `${srcFolder}/scss/**/*.scss`,
       `${srcFolder}/sass/**/*.sass`,

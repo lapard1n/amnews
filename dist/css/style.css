@@ -688,6 +688,9 @@ body._lock {
 .article__link img {
   width: 25px;
   height: 25px;
+  -webkit-transform: translateX(-5px);
+      -ms-transform: translateX(-5px);
+          transform: translateX(-5px);
   -webkit-transition: width 0.15s linear;
   -o-transition: width 0.15s linear;
   transition: width 0.15s linear;

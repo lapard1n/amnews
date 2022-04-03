@@ -34,4 +34,5 @@ export const jsmin = () => {
     }))
 
     .pipe(app.gulp.dest(app.path.dist.js))
+    .pipe(app.plugins.browser.stream())
 }

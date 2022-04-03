@@ -1,6 +1,7 @@
 import webpHtmlNosvg from "gulp-webp-html-nosvg";
 import versionNumber from "gulp-version-number";
 import pug from "gulp-pug";
+import gulpHtmlmin from "gulp-htmlmin";
 
 export const html = () => {
   return app.gulp.src(app.path.src.html)
@@ -41,6 +42,16 @@ export const html = () => {
         }
       })
     )
+
+    .pipe(app.plugins.rename({ basename: "intermediate" }))
+    .pipe(app.gulp.dest(app.path.dist.html))
+
+    // ? ФИНАЛЬНАЯ ФИНИФИКАЦИЯ HTML
+    .pipe(app.plugins.rename({ basename: "index" }))
+    .pipe(gulpHtmlmin({
+      collapseWhitespace: true,
+      removeComments: true,
+    }))
 
     .pipe(app.gulp.dest(app.path.dist.html))
     .pipe(app.plugins.browser.stream())

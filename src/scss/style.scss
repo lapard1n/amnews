@@ -553,6 +553,7 @@ body._lock {
     img {
       width: 25px;
       height: 25px;
+      transform: translateX(-5px);
       transition: width 0.15s linear;
     }
 
