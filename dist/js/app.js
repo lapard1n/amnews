@@ -149,18 +149,16 @@ burgerMenu.addEventListener('click', function (e) {
   menuDropout.classList.toggle('_active');
 }, false);
 
+// TODO СКРИПТ КОНВЕРТАЦИИ И СЖАТИЯ ИЗОБРАЖЕНИЙ
 function isWebp() {
   function testWebP(callback) {
-
     var webP = new Image();
     webP.onload = webP.onerror = function () {
       callback(webP.height == 2);
     };
     webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
   }
-
   testWebP(function (support) {
-
     if (support == true) {
       document.querySelector('body').classList.add('webp');
     } else {
@@ -168,8 +166,13 @@ function isWebp() {
     }
   });
 }
-
 isWebp();
 
+// TODO УКАЗАНИЕ СЛАЙДА ПО УМОЛЧАНИЮ
+// TODO АВТО-ПРОКРУТКА
+// TODO ПРОКРУТКА СВАЙПОМ
+// TODO ЗАЦИКЛЕННОСТЬ ПЕРЕХОДА
+// TODO КНОПКИ ПРОКРУТКИ
+// TODO ИНДИКАТОРЫ ПРОКРУТКИ
 
 //# sourceMappingURL=app.js.map
