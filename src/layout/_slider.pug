@@ -1,31 +1,26 @@
 .slider
   .slider__wrapper
-    .slider__items
-      .slider__item
-      .slider__item
-      .slider__item
-      .slider__item
-      .slider__item
+
+    .slider__container
+      .slider__track
+        .slider__item
+          p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        .slider__item
+          p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        .slider__item
+          p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        .slider__item
+          p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        .slider__item
+          p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
     .slider__indicators
-      a.slider__indicator-case(href = "#")
-        .slider__indicator-line
-      a.slider__indicator-case(href = "#")
-        .slider__indicator-line
-      a.slider__indicator-case._active(href = "#")
-        .slider__indicator-line
-      a.slider__indicator-case(href = "#")
-        .slider__indicator-line
-      a.slider__indicator-case(href = "#")
-        .slider__indicator-line
 
     .slider-borders
       .border-line
       .border-line
-      .border-line
-      .border-line
 
-    a.slider__control.slider__control_prev(href = "#")
-      img(src="./img/arrow-left.svg", alt="left arrow")
-    a.slider__control.slider__control_next(href = "#")
-      img(src="./img/arrow-right.svg", alt="right arrow")
+    button.slider__control.slider__control_prev
+      img(src="./img/chevron-left.svg", alt="left arrow")
+    button.slider__control.slider__control_next
+      img(src="./img/chevron-right.svg", alt="right arrow")

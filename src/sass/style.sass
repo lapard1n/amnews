@@ -24,7 +24,9 @@ body._lock
   width: 100%
   display: flex
   flex-flow: column nowrap
-  background-image: url(../img/large-triangles.svg)
+  background: #FFBBBB
+  background-image: url(../img/new-large-triangles.svg)
+  overflow: hidden
 
 ::-webkit-scrollbar
   width: 12px
@@ -50,6 +52,7 @@ html, body
 .header
   width: 100%
   height: 125px
+  margin-bottom: 75px
   display: flex
   justify-content: center
   align-items: center
@@ -58,7 +61,7 @@ html, body
     width: 100%
     height: 100%
     max-width: 1100px
-    padding: 25px 50px
+    padding: 0 50px
     display: flex
     justify-content: space-between
     align-items: center
@@ -115,17 +118,17 @@ html, body
     position: relative
 
   &__uplink
-    margin-right: 40px
-    line-height: 2.25rem
-    letter-spacing: 0.02rem
+    margin-right: 50px
+    letter-spacing: 0.05rem
     position: relative
     cursor: pointer
     font:
-      weight: 600
-      size: 1.75rem
+      weight: 700
+      size: 2rem
     &:last-child
       margin-right: 0
     & > a
+      padding: 5px 0 10px 0
       transition: color 0.15s linear
 
   &__sub-list
@@ -136,29 +139,30 @@ html, body
     justify-content: center
     overflow: hidden
     position: absolute
-    top: 100%
+    top: 125%
     right: 0
     background: #FFBBBB
     border-right: 2px solid #E5A8A8
     pointer-events: all
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25)
     transform: scale3d(0, 0, 0)
     transform-origin: top right
     transition: transform 0.15s linear
     hr
       width: 100%
-      height: 2px
+      height: 4px
       margin: 0
       background: #E5A8A8
       border: none
 
   &__downlink
     width: 100%
-    padding: 10px 20px
+    padding: 20px 30px
     margin-right: 0
     transition: background 0.15s linear
     font:
       weight: 500
-      size: 1.25rem
+      size: 1.5rem
 
 .burger-menu
   display: none
@@ -174,6 +178,7 @@ html, body
  */
 
 .main
+  margin: 125px 0 16px 0
   display: flex
   flex-flow: column nowrap
   flex: 1 1 auto
@@ -187,7 +192,7 @@ html, body
     bottom: -100px
     right: 0
     z-index: 99
-    opacity: 0.75
+    opacity: 0.9
     background: #FFFFFF
     border:
       radius: 50%
@@ -248,17 +253,17 @@ html, body
     z-index: 1
   &:nth-child(even)
     z-index: 2
+    margin: 30px 0
 
   &__wrapper
     width: 100%
     max-width: 1100px
-    padding: 50px
+    padding: 60px 50px
     display: flex
     flex-flow: column nowrap
     justify-content: space-between
     position: relative
     overflow: hidden
-
 
   &__title
     width: -webkit-max-content
@@ -446,7 +451,7 @@ html, body
   &__wrapper
     width: 100%
     max-width: 1100px
-    padding: 25px 50px
+    padding: 0 50px
     display: flex
     justify-content: space-between
 
