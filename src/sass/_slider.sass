@@ -56,14 +56,14 @@
       border-radius: 4px
       z-index: 3
       &:nth-child(1)
-        height: calc(100% - 100px)
+        height: calc(100% - 125px)
         width: 4px
         top: 50%
         left: 0
         transform: translate3d(-50%, -50%, 0)
         box-shadow: -4px 0px 7px rgba(0, 0, 0, 0.15)
       &:nth-child(2)
-        height: calc(100% - 100px)
+        height: calc(100% - 125px)
         width: 4px
         top: 50%
         right: 0
@@ -82,10 +82,11 @@
     height: 100%
     position: relative
     top: 0
-    left: -1100px
     display: flex
+    // ! СМЕЩЕНИЕ НА ПОДЛИННЫЙ ПЕРВЫЙ СЛАЙД
+    left: -1100px
     &.shifting
-      transition: left .2s ease-out
+      transition: left .2s
 
   &__item
     height: 100%
@@ -112,8 +113,6 @@
   &__indicator-case
     height: 26px
     width: 55px
-    $defWidth: 55
-    $defHeight: 26
     margin: 0 6px
     padding: 0
     display: flex
@@ -133,27 +132,21 @@
     position: absolute
     width: 60px
     height: 60px
+    top: 50%
+    transform: translateY(-50%)
     background: #FFFFFF
+    background-position: center
+    background-repeat: no-repeat
     border-radius: 50px
     border: none
     z-index: 5
     transition: 0.15s
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15)
-    img
-      position: absolute
-      top: 50%
-      left: 50%
-      transform: translate3d(-50%, -50%, 0)
-      pointer-events: none
     &_prev
-      top: 50%
       left: -30px
-      transform: translateY(-50%)
-      &:active
-        transform: translateY(-50%) scale(0.9)
+      background-image: url('../img/chevron-left.svg')
     &_next
-      top: 50%
       right: -30px
-      transform: translateY(-50%)
-      &:active
-        transform: translateY(-50%) scale(0.9)
+      background-image: url('../img/chevron-right.svg')
+    &:active
+      transform: translateY(-50%) scale(0.9)
