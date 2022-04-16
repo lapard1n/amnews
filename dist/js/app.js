@@ -175,6 +175,7 @@ const track = document.querySelector('.slider__track');
 const items = document.querySelectorAll('.slider__item');
 const btnPrev = document.querySelector('.slider__control_prev');
 const btnNext = document.querySelector('.slider__control_next');
+const indicators = document.querySelector('.slider__indicators');
 
 function slide() {
   let posX1 = 0;
@@ -245,6 +246,7 @@ function slide() {
   }
   function dragEnd(e) {
     posFinal = track.offsetLeft;
+
     if (posFinal - posInitial < -threshold) {
       shiftSlide("next", "swipe");
     } else if (posFinal - posInitial > threshold) {
@@ -295,24 +297,22 @@ function slide() {
 
     allowShift = true;
   }
+
+  // TODO ИНДИКАТОРЫ ПРОКРУТКИ В ЗАВИСИМОСТИ ОТ КОЛИЧЕСТВА СЛАЙДОВ
+  for (let i = 0; i != items.length; i++) {
+    // ? СОЗДАЮ ПОЛОСКУ ИНДИКАТОРА
+    let indicatorLine = document.createElement('span');
+    indicatorLine.classList.add('slider__indicator-line');
+    // ? СОЗДАЮ ОБОЛОЧКУ ИНДИКТОРОВ
+    let indicatorCase = document.createElement('button');
+    indicatorCase.classList.add('slider__indicator-case');
+    indicatorCase.setAttribute('href', '#');
+    indicatorCase.appendChild(indicatorLine);
+    // ? НАКОНЕЦ ДОБАВЛЯЮ ПАРТИЮ ГОТОВЫХ РЕБЯТ В РОДИТЕЛЯ
+    indicators.appendChild(indicatorCase);
+  }
 }
 
-slide();
-
-// TODO ИНДИКАТОРЫ ПРОКРУТКИ В ЗАВИСИМОСТИ ОТ КОЛИЧЕСТВА СЛАЙДОВ
-const indicators = document.querySelector('.slider__indicators');
-
-for (let i = 0; i != items.length; i++) {
-  // ? СОЗДАЮ ПОЛОСКУ ИНДИКАТОРА
-  let indicatorLine = document.createElement('span');
-  indicatorLine.classList.add('slider__indicator-line');
-  // ? СОЗДАЮ ОБОЛОЧКУ ИНДИКТОРОВ
-  let indicatorCase = document.createElement('button');
-  indicatorCase.classList.add('slider__indicator-case');
-  indicatorCase.setAttribute('href', '#');
-  indicatorCase.appendChild(indicatorLine);
-  // ? НАКОНЕЦ ДОБАВЛЯЮ ПАРТИЮ ГОТОВЫХ РЕБЯТ В РОДИТЕЛЯ
-  indicators.appendChild(indicatorCase);
-}
+slide()
 
 //# sourceMappingURL=app.js.map
