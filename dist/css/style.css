@@ -577,7 +577,7 @@ body {
   bottom: -100px;
   right: 0;
   z-index: 99;
-  opacity: 0.9;
+  opacity: 0;
   background: #FFFFFF;
   border-radius: 50%;
   border-style: solid;
@@ -585,16 +585,17 @@ body {
   border-color: #000000;
   -webkit-transform: translate3d(-80%, -80%, 0);
           transform: translate3d(-80%, -80%, 0);
-  -webkit-transform-origin: center;
-      -ms-transform-origin: center;
-          transform-origin: center;
-  -webkit-transition: bottom 0.15s linear;
-  -o-transition: bottom 0.15s linear;
-  transition: bottom 0.15s linear;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .main__link-up._show {
+  opacity: 0.9;
   bottom: 0;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .main__link-arrow {

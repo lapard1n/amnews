@@ -98,21 +98,23 @@ for (let menuAnchor of menuAnchors) {
 // TODO КНОПКА ВОЗВРАЩЕНИЯ НАВЕРХ
 const goToTopBtn = document.querySelector('.main__link-up');
 const header = document.querySelector('.header');
-window.addEventListener('scroll', trackScroll, false);
+const options = { threshold: 1.0 }
 
-function trackScroll(e) {
-  e.preventDefault();
-  let scrolled = window.pageYOffset;
-  // ? ПОЛУЧАЮ ВЫСОТУ HEADER И ВЫЧИТАЮ 1 ДЛЯ ПОЯВЛЕНИЯ КНОПКИ ПРИ КЛИКЕ НА ANCHOR
-  let topIndent = 99;
+const observeCallback = function (entries, observer) {
+  entries.forEach((entry) => {
+    const { isIntersecting } = entry;
 
-  if (scrolled > topIndent) {
-    goToTopBtn.classList.add('_show');
-  }
-  if (scrolled < topIndent) {
-    goToTopBtn.classList.remove('_show');
-  }
+    if (isIntersecting) {
+      goToTopBtn.classList.remove('_show');
+    } else {
+      goToTopBtn.classList.add('_show');
+    }
+
+  });
 }
+
+const observer = new IntersectionObserver(observeCallback, options);
+observer.observe(header);
 
 // TODO ПРОПИСВАЮ ПЛАВНУЮ ПРОКРУТКУ ВВЕРХ ПРИ НАЖАТИИ НА ПОЯВИВШУЮСЯ КНОПКУ
 goToTopBtn.addEventListener('click', backToTop, false);

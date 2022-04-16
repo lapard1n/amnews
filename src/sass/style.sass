@@ -192,7 +192,7 @@ html, body
     bottom: -100px
     right: 0
     z-index: 99
-    opacity: 0.9
+    opacity: 0
     background: #FFFFFF
     border:
       radius: 50%
@@ -200,11 +200,12 @@ html, body
       width: 3px
       color: #000000
     transform: translate3d(-80%, -80%, 0)
-    transform-origin: center
-    transition: bottom 0.15s linear
+    transition: 0.5s
 
     &._show
+      opacity: 0.9
       bottom: 0
+      transition: 0.5s
 
   &__link-arrow
     width: 20px

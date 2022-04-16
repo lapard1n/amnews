@@ -98,21 +98,23 @@ for (let menuAnchor of menuAnchors) {
 // TODO КНОПКА ВОЗВРАЩЕНИЯ НАВЕРХ
 const goToTopBtn = document.querySelector('.main__link-up');
 const header = document.querySelector('.header');
-window.addEventListener('scroll', trackScroll, false);
+const options = { threshold: 1.0 }
 
-function trackScroll(e) {
-  e.preventDefault();
-  let scrolled = window.pageYOffset;
-  // ? ПОЛУЧАЮ ВЫСОТУ HEADER И ВЫЧИТАЮ 1 ДЛЯ ПОЯВЛЕНИЯ КНОПКИ ПРИ КЛИКЕ НА ANCHOR
-  let topIndent = 99;
+const observeCallback = function (entries, observer) {
+  entries.forEach((entry) => {
+    const { isIntersecting } = entry;
 
-  if (scrolled > topIndent) {
-    goToTopBtn.classList.add('_show');
-  }
-  if (scrolled < topIndent) {
-    goToTopBtn.classList.remove('_show');
-  }
+    if (isIntersecting) {
+      goToTopBtn.classList.remove('_show');
+    } else {
+      goToTopBtn.classList.add('_show');
+    }
+
+  });
 }
+
+const observer = new IntersectionObserver(observeCallback, options);
+observer.observe(header);
 
 // TODO ПРОПИСВАЮ ПЛАВНУЮ ПРОКРУТКУ ВВЕРХ ПРИ НАЖАТИИ НА ПОЯВИВШУЮСЯ КНОПКУ
 goToTopBtn.addEventListener('click', backToTop, false);
@@ -168,8 +170,6 @@ function isWebp() {
 }
 isWebp();
 
-// TODO АВТО-ПРОКРУТКА СЛАЙДЕРА
-
 const wrapper = document.querySelector('.slider__wrapper');
 const track = document.querySelector('.slider__track');
 const items = document.querySelectorAll('.slider__item');
@@ -209,10 +209,10 @@ function slide() {
 
   // ? СОБЫТИЯ ПО КНОПКАМ
   btnPrev.addEventListener('click', function () {
-    shiftSlide("prev", "click")
+    shiftSlide("prev", "click");
   })
   btnNext.addEventListener('click', function () {
-    shiftSlide("next", "click")
+    shiftSlide("next", "click");
   })
 
   track.addEventListener('transitionend', checkIndex);
@@ -222,6 +222,7 @@ function slide() {
     e = e || window.event;
     e.preventDefault();
     posInitial = track.offsetLeft;
+    track.classList.add('active');
 
     if (e.type == 'touchstart') {
       posX1 = e.touches[0].clientX;
@@ -257,6 +258,7 @@ function slide() {
 
     document.onmousemove = null;
     document.onmouseup = null;
+    track.classList.replace('active', 'unactive');
   }
 
   // TODO КНОПКИ ПРОКРУТКИ
@@ -311,6 +313,64 @@ function slide() {
     // ? НАКОНЕЦ ДОБАВЛЯЮ ПАРТИЮ ГОТОВЫХ РЕБЯТ В РОДИТЕЛЯ
     indicators.appendChild(indicatorCase);
   }
+
+  // TODO АВТО-ПРОКРУТКА СЛАЙДЕРА
+  // ? ОПИСЫВАЮ ВРЕМЯ И РАБОТУ ИНТЕРВАЛА
+  let timeShift = 5000;
+  function autoShift() {
+    track.classList.add('shifting');
+    posInitial = track.offsetLeft;
+    track.style.left = (posInitial - slideSize) + "px";
+    index++;
+    if (index == (slidesLength + 1)) {
+      track.classList.remove('shifting');
+      track.style.left = -(1 * slideSize) + "px";
+      index = 0;
+    }
+    console.log('go');
+  }
+  let timer = setInterval(autoShift, timeShift);
+
+  // ? ОТСЛЕЖИВАЮ РАБОТУ ИНТЕРВАЛА ДЛЯ СВАЙПОВ
+  const config = { "attributes": true };
+  let observer = new MutationObserver(mutationEvent);
+  function mutationEvent(mutationsList) {
+    for (var mutation of mutationsList) {
+      if (track.classList.contains('active')) {
+        console.log('ОСТАНОВКА!');
+        clearInterval(timer);
+      } else if (track.classList.contains('unactive')) {
+        console.log('ПРОДОЛЖЕНИЕ!');
+        timer = setInterval(autoShift, timeShift);
+        track.classList.remove('unactive');
+      }
+    }
+  };
+  observer.observe(track, config);
+
+  //
+  btnPrev.addEventListener('click', function () {
+    console.log('ОБНОВИЛ!');
+    clearInterval(timer);
+    timer = setInterval(autoShift, timeShift);
+  });
+  btnNext.addEventListener('click', function () {
+    console.log('ОБНОВИЛ!');
+    clearInterval(timer);
+    timer = setInterval(autoShift, timeShift);
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === 'hidden') {
+      console.log('Вкладка не активна');
+      clearInterval(timer);
+    } else {
+      console.log('Вкладка активна');
+      timer = setInterval(autoShift, timeShift);
+    }
+  });
+
+  // TODO ОПТИМИЗАЦИЯ СЛУШАТЕЛЕЙ СОБЫТИЙ
 }
 
 slide()
