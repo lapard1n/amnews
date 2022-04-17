@@ -128,13 +128,14 @@ function slide() {
     allowShift = true;
   }
 
-  // TODO ИНДИКАТОРЫ ПРОКРУТКИ В ЗАВИСИМОСТИ ОТ КОЛИЧЕСТВА СЛАЙДОВ
+  // TODO ПЕРЕКЛЮЧЕНИЕ СЛАЙДОВ ПО ИНДИКАТОРАМ
+  // ? ИНДИКАТОРЫ ПРОКРУТКИ В ЗАВИСИМОСТИ ОТ КОЛИЧЕСТВА СЛАЙДОВ
   for (let i = 0; i != items.length; i++) {
     // ? СОЗДАЮ ПОЛОСКУ ИНДИКАТОРА
-    let indicatorLine = document.createElement('span');
+    const indicatorLine = document.createElement('span');
     indicatorLine.classList.add('slider__indicator-line');
     // ? СОЗДАЮ ОБОЛОЧКУ ИНДИКТОРОВ
-    let indicatorCase = document.createElement('button');
+    const indicatorCase = document.createElement('button');
     indicatorCase.classList.add('slider__indicator-case');
     indicatorCase.setAttribute('href', '#');
     indicatorCase.appendChild(indicatorLine);
@@ -144,7 +145,7 @@ function slide() {
 
   // TODO АВТО-ПРОКРУТКА СЛАЙДЕРА
   // ? ОПИСЫВАЮ ВРЕМЯ И РАБОТУ ИНТЕРВАЛА
-  let timeShift = 5000;
+  const timeShift = 5000;
   function autoShift() {
     track.classList.add('shifting');
     posInitial = track.offsetLeft;
@@ -161,22 +162,20 @@ function slide() {
 
   // ? ОТСЛЕЖИВАЮ РАБОТУ ИНТЕРВАЛА ДЛЯ СВАЙПОВ
   const config = { "attributes": true };
-  let observer = new MutationObserver(mutationEvent);
-  function mutationEvent(mutationsList) {
-    for (var mutation of mutationsList) {
-      if (track.classList.contains('active')) {
-        console.log('ОСТАНОВКА!');
-        clearInterval(timer);
-      } else if (track.classList.contains('unactive')) {
-        console.log('ПРОДОЛЖЕНИЕ!');
-        timer = setInterval(autoShift, timeShift);
-        track.classList.remove('unactive');
-      }
+  const observeShift = new MutationObserver(mutationEvent);
+  function mutationEvent() {
+    if (track.classList.contains('active')) {
+      console.log('ОСТАНОВКА!');
+      clearInterval(timer);
+    } else if (track.classList.contains('unactive')) {
+      console.log('ПРОДОЛЖЕНИЕ!');
+      timer = setInterval(autoShift, timeShift);
+      track.classList.remove('unactive');
     }
   };
-  observer.observe(track, config);
+  observeShift.observe(track, config);
 
-  //
+  // ? ОТСЛЕЖИВАЮ РАБОТУ ИНТЕРВАЛА ПРИ КЛИКАХ ПО КНОПКАМ
   btnPrev.addEventListener('click', function () {
     console.log('ОБНОВИЛ!');
     clearInterval(timer);
@@ -188,6 +187,7 @@ function slide() {
     timer = setInterval(autoShift, timeShift);
   });
 
+  // ? ОТСЛЕЖИВАЮ РАБОТУ ИНТЕРВАЛА ПРИ УХОДЕ СО СТРАНИЦЫ
   document.addEventListener("visibilitychange", function () {
     if (document.visibilityState === 'hidden') {
       console.log('Вкладка не активна');

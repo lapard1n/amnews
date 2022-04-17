@@ -1,5 +1,14 @@
 "use strict"
 
+// TODO ПОДКЛЮЧАЮ БИБЛИОТЕКУ СО СТАТУС-БАРОМ ЗАГРУЗКИ
+$(document).ready(function () {
+  NProgress.start();
+});
+
+$(window).on('load', function () {
+  NProgress.done(true);
+});
+
 // TODO СКИДЫВАЮ КЛАСС ПРЕД-ЗАГРУЗКИ ДЛЯ СКИПА АНИМАЦИИ
 setTimeout(function () {
   document.querySelector('.preload').classList.remove('preload');
@@ -38,7 +47,7 @@ if (isMobile.any()) {
   document.body.classList.add('_touch');
 
   // ? ПОЛУЧАЕМ МАССИВ ОБЪЕКТОВ ДЛЯ МЕНЮ
-  let menuArrows = document.querySelectorAll('.menu__arrow');
+  const menuArrows = document.querySelectorAll('.menu__arrow');
   if (menuArrows.length > 0) {
     for (let index = 0; index < menuArrows.length; index++) {
 
@@ -102,7 +111,13 @@ const options = { threshold: 1.0 }
 
 const observeCallback = function (entries, observer) {
   entries.forEach((entry) => {
-    const { isIntersecting } = entry;
+    // ? СВОЙСТВА ОБЪЕКТА IntersectionObserver
+    const {
+      // ? ДОСТУП К ОТСЛЕЖИВАЕМОМУ ЭЛЕМЕНТУ
+      target,
+      // ? true ЕСЛИ ОТСЛЕЖИВАЕМЫЙ ЭЛЕМЕНТ ПЕРЕСЕКАЕТ viewport ХОТЯ БЫ НА 1 px
+      isIntersecting
+    } = entry;
 
     if (isIntersecting) {
       goToTopBtn.classList.remove('_show');
@@ -131,13 +146,13 @@ function backToTop(e) {
 // TODO ДОБАВЛЯЮ HR ЭЛЕМЕНТ В НАЧАЛО СПИСКА SUB-LIST НА ЭКРАНАХ ДО 768
 if (document.documentElement.clientWidth < 768) {
 
-  let hrElement = document.querySelectorAll('.menu__sub-list');
+  const hrElement = document.querySelectorAll('.menu__sub-list');
   hrElement.forEach(i => {
-    let newUpHr = document.createElement('hr');
+    const newUpHr = document.createElement('hr');
     i.insertAdjacentElement('afterbegin', newUpHr);
   })
   hrElement.forEach(i => {
-    let newUpHr = document.createElement('hr');
+    const newUpHr = document.createElement('hr');
     i.insertAdjacentElement('beforeend', newUpHr);
   })
 }

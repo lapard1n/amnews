@@ -229,6 +229,7 @@ body {
 .menu__uplink {
   margin-right: 50px;
   letter-spacing: 0.05rem;
+  line-height: 2.5rem;
   position: relative;
   cursor: pointer;
   font-weight: 700;
