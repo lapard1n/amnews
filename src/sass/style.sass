@@ -52,10 +52,11 @@ html, body
 .header
   width: 100%
   height: 125px
-  margin-bottom: 75px
+  margin-bottom: 125px
   display: flex
   justify-content: center
   align-items: center
+  background: rgba(45,52,54, 0.15)
 
   &__wrapper
     width: 100%
@@ -86,7 +87,7 @@ html, body
       transform: translate3d(-50%, -50%, 0)
       border-radius: 50%
       background: #FFFFFF
-      box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25)
+      box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15)
       transition: all 0.5s ease-in-out
 
     &:hover::after
@@ -123,6 +124,8 @@ html, body
     line-height: 2.5rem
     position: relative
     cursor: pointer
+    color: #FFFFFF
+    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15)
     font:
       weight: 700
       size: 2rem
@@ -144,7 +147,7 @@ html, body
     right: 0
     background: #FFBBBB
     pointer-events: all
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25)
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15)
     transform: scale3d(0, 0, 0)
     transform-origin: top right
     transition: transform 0.15s linear
@@ -179,7 +182,8 @@ html, body
  */
 
 .main
-  margin: 125px 0 16px 0
+  // margin: 125px 0 16px 0
+  margin: 125px 0 75px 0
   display: flex
   flex-flow: column nowrap
   flex: 1 1 auto
@@ -199,12 +203,12 @@ html, body
       radius: 50%
       style: solid
       width: 3px
-      color: #000000
+      color: #2d3436
     transform: translate3d(-80%, -80%, 0)
     transition: 0.5s
 
     &._show
-      opacity: 0.9
+      opacity: 1
       bottom: 0
       transition: 0.5s
 
@@ -222,7 +226,7 @@ html, body
       width: 20px
       height: 6px
       position: absolute
-      background: #000000
+      background: #2d3436
       border-radius: 15px
       transform-origin: center
     &::before
@@ -230,7 +234,7 @@ html, body
       width: 6px
       height: 20px
       position: absolute
-      background: #000000
+      background: #2d3436
       border-radius: 15px
       transform-origin: center
 
@@ -312,7 +316,7 @@ html, body
     margin-bottom: 5px
     position: relative
     overflow: hidden
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25)
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15)
     img
       width: 100%
 
@@ -398,10 +402,10 @@ html, body
   .bookmark
     width: 50px
     position: absolute
-    top: -90px
+    top: -100px
     right: 50px
     transform: translateX(50%)
-    transform: translateY(-20px)
+    transform: translateY(-50%)
     transition: transform 0.15s linear
 
   &__link
@@ -437,7 +441,7 @@ html, body
       img
         width: 20px
       & ~ .bookmark
-        transform: translateY(0px)
+        transform: translateY(-25%)
 
 /*
  * FOOTER SECTION
@@ -445,67 +449,106 @@ html, body
 
 .footer
   width: 100%
-  height: 100px
+  height: auto
   display: flex
+  flex-flow: column nowrap
   justify-content: center
   align-items: center
+  background: rgba(45,52,54, 0.15)
 
   &__wrapper
     width: 100%
     max-width: 1100px
-    padding: 0 50px
+    min-height: 100px
+    height: auto
+    padding: 50px 0
     display: flex
     justify-content: space-between
+    align-items: center
 
-  &__link
+  &__info
+    height: auto
+    width: 50%
+    font:
+      weight: 400
+      size: 1.1rem
+  &__title
+    font:
+      weight: 500
+      size: 1.75rem
+  &__text
+    margin: 25px 0
+    line-height: 1.25rem
+    text-indent: 1.5rem
+  &__contact
+    display: flex
+    align-items: center
+    margin-bottom: 10px
+    &:last-child
+      margin-bottom: 0
+    span
+      margin-right: 7px
+      font-weight: 500
+    img
+      margin-right: 5px
+      width: 16px
+      height: 16px
+
+  &__line
+    display: block
+    width: 1px
+    margin: 0 25px
+    background: #000
+
+  &__input-case
+    width: auto
+    height: 100%
+    display: flex
+    flex-flow: column wrap
+    justify-content: flex-start
+    align-items: flex-end
+    font:
+      weight: 400
+      size: 1.1rem
+  &__user-info
+  &__imput-section
+  &__buttons
+    width: 100%
+    display: flex
+    justify-content: flex-start
+  &__submit
+    width: 100px
+    height: 40px
+    background: #FFBBBB
+    border: none
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15)
+    &:first-child
+      margin-right: 25px
+
+
+  &__copyright
+    width: 100%
+    height: auto
     display: flex
     justify-content: center
-    align-items: center
-    position: relative
-    transition: color 0.15s linear
-    &:nth-child(odd)
-      font:
-        weight: 600
-        size: 1.625rem
-      &::after
-        content: ""
-        width: 100%
-        height: 2px
-        display: block
-        position: absolute
-        bottom: 0
-        left: 0
-        background-color: #000000
-        opacity: 0
-        transition: background-color 0.15s linear
-        transition: opacity 0.15s linear
-
-    &:nth-child(even)
-      font:
-        weight: 700
-        size: 2rem
-      &::after
-        content: ""
-        width: 100%
-        height: 2px
-        display: block
-        position: absolute
-        bottom: -10px
-        left: 0
-        background-color: rgba(0, 0, 0, 0.25)
-        opacity: 0
-        transition: background-color 0.15s linear
-        transition: opacity 0.15s linear
-
-    &:hover
-      text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5)
-      color: #FFFFFF
-      &::after
-        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25)
-        background-color: #FFFFFF
-        opacity: 1
-        transition: opacity 0.15s linear
-        transition: background-color 0.15s linear
+    background: #2d3436
+    color: #ecf0f1
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15)
+    font:
+      weight: 300
+      size: 1.1rem
+    &-wrapper
+      width: 100%
+      max-width: 1100px
+      padding: 1.1rem 0
+      display: flex
+      justify-content: space-between
+    &-info > a
+      color: #FFBBBB
+      transition: 0.15s
+      font-style: italic
+      &:hover
+        color: #4793FF
 
 /*
  * CSS FOR JS  CODE
@@ -514,8 +557,7 @@ html, body
 body._pc
   .menu__uplink
     &:hover > a
-      text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75)
-      color: #FFFFFF
+      color: #2d3436
     &:hover .menu__sub-list
       transform: scale3d(1, 1, 1)
 

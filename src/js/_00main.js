@@ -165,3 +165,10 @@ burgerMenu.addEventListener('click', function (e) {
   burgerMenu.classList.toggle('_active');
   menuDropout.classList.toggle('_active');
 }, false);
+
+// ? УСТАНАВЛИВАЮ ВЫСОТУ ЭЛЕМЕНТЫ ПО ЕГО СОСЕДУ
+const footerLine = document.querySelector(".footer__line");
+const footerForm = document.querySelector(".footer__input-case");
+const footerHeight = document.querySelector(".footer__info").offsetHeight;
+footerLine.style.height = footerHeight + "px";
+footerForm.style.height = footerHeight + "px";

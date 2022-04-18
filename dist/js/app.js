@@ -166,6 +166,13 @@ burgerMenu.addEventListener('click', function (e) {
   menuDropout.classList.toggle('_active');
 }, false);
 
+// ? УСТАНАВЛИВАЮ ВЫСОТУ ЭЛЕМЕНТЫ ПО ЕГО СОСЕДУ
+const footerLine = document.querySelector(".footer__line");
+const footerForm = document.querySelector(".footer__input-case");
+const footerHeight = document.querySelector(".footer__info").offsetHeight;
+footerLine.style.height = footerHeight + "px";
+footerForm.style.height = footerHeight + "px";
+
 // TODO СКРИПТ КОНВЕРТАЦИИ И СЖАТИЯ ИЗОБРАЖЕНИЙ
 function isWebp() {
   function testWebP(callback) {
@@ -217,6 +224,7 @@ function slide() {
   // ? СОБЫТИЕ ДЛЯ МЫШИ
   track.onmousedown = dragStart;
 
+  // TODO ИНИЦИАЛИЗАЦИЯ СОБЫТИЙ
   // ? СОБЫТИЯ ДЛЯ СВАЙПОВ
   track.addEventListener('touchstart', dragStart);
   track.addEventListener('touchmove', dragAction);

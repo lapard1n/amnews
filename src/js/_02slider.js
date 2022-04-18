@@ -30,6 +30,7 @@ function slide() {
   // ? СОБЫТИЕ ДЛЯ МЫШИ
   track.onmousedown = dragStart;
 
+  // TODO ИНИЦИАЛИЗАЦИЯ СОБЫТИЙ
   // ? СОБЫТИЯ ДЛЯ СВАЙПОВ
   track.addEventListener('touchstart', dragStart);
   track.addEventListener('touchmove', dragAction);

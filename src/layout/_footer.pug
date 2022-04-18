@@ -1,5 +1,47 @@
 footer.footer
   .footer__wrapper
-    a.footer__link(href='') about us...
-    a.footer__link(href='') Stay with us!
-    a.footer__link(href='') contacts...
+
+    .footer__info
+      .footer__title
+        | Contact info
+      .footer__text
+        | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas soluta molestias non dignissimos facere natus tempora id nihil libero omnis quisquam temporibus, quo, officia quia iusto consectetur fugit ducimus cum!
+      .footer__contacts
+        .footer__contact
+          img(src="./img/map-pin.svg", alt="")
+          | #[span Adress:] #[a(href="https://www.google.com/maps/place/Sarphatipark+106,+1073+EC+Amsterdam,+Netherlands/@52.3536736,4.8953845,17z/data=!3m1!4b1!4m13!1m7!3m6!1s0x47c6098dc93755f3:0xd1a9155e940cf8df!2sSarphatipark+106,+1073+EC+Amsterdam,+Netherlands!3b1!8m2!3d52.3536703!4d4.8975732!3m4!1s0x47c6098dc93755f3:0xd1a9155e940cf8df!8m2!3d52.3536703!4d4.8975732") Sarphatipark 106, 1073 EC Amsterdam, Netherlands]
+        .footer__contact
+          img(src="./img/phone.svg", alt="")
+          | #[span Phone:] #[a(href="tel:+78005553535") +7 (800) 555-35-35]
+        .footer__contact
+          img(src="./img/mail.svg", alt="")
+          | #[span Mail:] #[a(href="mailto:info@lapard1n.com") info@lapard1n.com]
+
+    .footer__line
+
+    form(action="" method="" name="client-request" enctype="text/plain").footer__input-case#input-case
+      fieldset(name="client-request" form="input-case").footer__container
+        //- legend.footer__container-name Contact us
+        .footer__user-info
+          span.footer__imput-section
+            label(for="user-name" required)
+            input(type="text" name="user-name" id="user-name" form="input-case")
+          span.footer__imput-section
+            label(for="user-mail" required)
+            input(type="email" name="user-mail" id="user-mail" form="input-case")
+        span.footer__imput-section
+          label(for="user-theme")
+          input(type="text" name="user-theme" id="user-theme" form="input-case")
+        span.footer__imput-section
+          label(for="user-text" required)
+          input(type="text" name="user-text" id="user-text" form="input-case")
+      .footer__buttons
+        input(type="submit" name="send" value="Send" form="input-case").footer__submit
+        input(type="reset" name="reset" value="Reset" form="input-case").footer__submit
+
+  .footer__copyright
+    .footer__copyright-wrapper
+      .footer__copyright-info
+        | Copyright © 2022. All right a reserved.
+      .footer__copyright-info
+        | Desygned by #[a(href="https://github.com/lapard1n") lapard1n]
