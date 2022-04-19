@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./libs/reset/reset.min.css?_v=20220419003400">
-    <link rel="stylesheet" href="./libs/nprogress/nprogress.min.css?_v=20220419003400">
-    <link rel="stylesheet" href="./css/style.min.css?_v=20220419003400">
+    <link rel="stylesheet" href="./libs/reset/reset.min.css?_v=20220419214222">
+    <link rel="stylesheet" href="./libs/nprogress/nprogress.min.css?_v=20220419214222">
+    <link rel="stylesheet" href="./css/style.min.css?_v=20220419214222">
     <link rel="shortcut icon" href="./img/news.png" type="image/x-icon">
     <title>Amazing news</title>
   </head>
@@ -155,19 +155,28 @@
           <div class="footer__line"></div>
           <form class="footer__input-case" action="" method="" name="client-request" enctype="text/plain" id="input-case">
             <fieldset class="footer__container" name="client-request" form="input-case">
-              <div class="footer__user-info"><span class="footer__imput-section">
-                  <label for="user-name" required></label>
-                  <input type="text" name="user-name" id="user-name" form="input-case"></span><span class="footer__imput-section">
-                  <label for="user-mail" required></label>
-                  <input type="email" name="user-mail" id="user-mail" form="input-case"></span></div><span class="footer__imput-section">
-                <label for="user-theme"></label>
-                <input type="text" name="user-theme" id="user-theme" form="input-case"></span><span class="footer__imput-section">
-                <label for="user-text" required></label>
-                <input type="text" name="user-text" id="user-text" form="input-case"></span>
+              <div class="footer__case-info">
+                <div class="footer__user-info">
+                  <input class="footer__input" type="text" name="user-name" id="user-name" form="input-case" autocomplete="off" required>
+                  <label class="footer__label" for="user-name">Your Name</label>
+                </div><span>&</span>
+                <div class="footer__user-info">
+                  <input class="footer__input" type="email" name="user-mail" id="user-mail" form="input-case" autocomplete="off" required>
+                  <label class="footer__label" for="user-mail">Your Email</label>
+                </div>
+              </div>
+              <div class="footer__user-theme">
+                <input class="footer__input" type="text" name="user-theme" id="user-theme" form="input-case" autocomplete="off">
+                <label class="footer__label" for="user-theme">Your Title</label>
+              </div>
+              <div class="footer__user-message">
+                <textarea class="footer__input" name="user-message" id="user-message" form="input-case" rows="10" autocomplete="off"></textarea>
+                <label class="footer__label" for="user-message">Your Message</label>
+              </div>
             </fieldset>
             <div class="footer__buttons">
               <input class="footer__submit" type="submit" name="send" value="Send" form="input-case">
-              <input class="footer__submit" type="reset" name="reset" value="Reset" form="input-case">
+              <buttun class="footer__submit" type="reset" name="reset" form="input-case">Reset</buttun>
             </div>
           </form>
         </div>
@@ -179,8 +188,8 @@
         </div>
       </footer>
     </div>
-    <script src="./libs/jquery/jquery.min.js?_v=20220419003400"></script>
-    <script src="./libs/nprogress/nprogress.min.js?_v=20220419003400"></script>
-    <script src="./js/app.js?_v=20220419003400"></script>
+    <script src="./libs/jquery/jquery.min.js?_v=20220419214222"></script>
+    <script src="./libs/nprogress/nprogress.min.js?_v=20220419214222"></script>
+    <script src="./js/app.js?_v=20220419214222"></script>
   </body>
 </html>

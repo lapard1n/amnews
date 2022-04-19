@@ -166,12 +166,32 @@ burgerMenu.addEventListener('click', function (e) {
   menuDropout.classList.toggle('_active');
 }, false);
 
-// ? УСТАНАВЛИВАЮ ВЫСОТУ ЭЛЕМЕНТЫ ПО ЕГО СОСЕДУ
+// ? УСТАНАВЛИВАЮ ВЫСОТУ ЭЛЕМЕНТЫ ПО ЕГО СОСЕД
 const footerLine = document.querySelector(".footer__line");
-const footerForm = document.querySelector(".footer__input-case");
-const footerHeight = document.querySelector(".footer__info").offsetHeight;
-footerLine.style.height = footerHeight + "px";
-footerForm.style.height = footerHeight + "px";
+const footerInfo = document.querySelector(".footer__info");
+const footerHeight = document.querySelector(".footer__input-case").offsetHeight;
+footerLine.style.height = (footerHeight - 70) + "px";
+footerInfo.style.height = footerHeight + "px";
+
+const footerInput = document.querySelectorAll(".footer__input");
+const footerLabel = document.querySelectorAll('.footer__label');
+const footerReset = document.querySelector('buttun.footer__submit');
+
+footerInput.forEach(input => {
+  input.addEventListener('input', function (e) {
+    input.nextSibling.nextSibling.classList.add("input-active");
+    if (input.value == '') {
+      input.nextSibling.nextSibling.classList.remove("input-active");
+    }
+  }, false);
+  footerReset.addEventListener('click', function (e) {
+    input.value = '';
+    input.nextSibling.nextSibling.classList.remove("input-active");
+  }, false);
+})
+
+
+
 
 // TODO СКРИПТ КОНВЕРТАЦИИ И СЖАТИЯ ИЗОБРАЖЕНИЙ
 function isWebp() {

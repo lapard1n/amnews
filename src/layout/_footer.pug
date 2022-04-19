@@ -22,22 +22,23 @@ footer.footer
     form(action="" method="" name="client-request" enctype="text/plain").footer__input-case#input-case
       fieldset(name="client-request" form="input-case").footer__container
         //- legend.footer__container-name Contact us
-        .footer__user-info
-          span.footer__imput-section
-            label(for="user-name" required)
-            input(type="text" name="user-name" id="user-name" form="input-case")
-          span.footer__imput-section
-            label(for="user-mail" required)
-            input(type="email" name="user-mail" id="user-mail" form="input-case")
-        span.footer__imput-section
-          label(for="user-theme")
-          input(type="text" name="user-theme" id="user-theme" form="input-case")
-        span.footer__imput-section
-          label(for="user-text" required)
-          input(type="text" name="user-text" id="user-text" form="input-case")
+        .footer__case-info
+          .footer__user-info
+            input(type="text" name="user-name" id="user-name" form="input-case" autocomplete="off" required).footer__input
+            label(for="user-name").footer__label Your Name
+          span &
+          .footer__user-info
+            input(type="email" name="user-mail" id="user-mail" form="input-case" autocomplete="off" required).footer__input
+            label(for="user-mail").footer__label Your Email
+        .footer__user-theme
+          input(type="text" name="user-theme" id="user-theme" form="input-case" autocomplete="off").footer__input
+          label(for="user-theme").footer__label Your Title
+        .footer__user-message
+          textarea(name="user-message" id="user-message" form="input-case" rows="10" autocomplete="off").footer__input
+          label(for="user-message").footer__label Your Message
       .footer__buttons
         input(type="submit" name="send" value="Send" form="input-case").footer__submit
-        input(type="reset" name="reset" value="Reset" form="input-case").footer__submit
+        buttun(type="reset" name="reset" form="input-case").footer__submit Reset
 
   .footer__copyright
     .footer__copyright-wrapper
