@@ -23,7 +23,7 @@ function slide() {
 
   // ? КЛОНИРУЮ ПЕРВЫЕ И ПОСЛЕДНИЕ СЛАЙДЫ В ОЧЕРЕДЬ
   track.insertBefore(cloneLast, firstSlide); // ДО
-  track.appendChild(cloneFirst); //  ПОСЛЕ
+  track.appendChild(cloneFirst); // ПОСЛЕ
 
   // ? КОГДА СЛАЙДЫ КЛАНИРОВАНЫ ПРИМЕНЯЕМ СТИЛИ
   wrapper.classList.add('loaded');
@@ -139,15 +139,22 @@ function slide() {
     // ? СОЗДАЮ ОБОЛОЧКУ ИНДИКТОРОВ
     const indicatorCase = document.createElement('button');
     indicatorCase.classList.add('slider__indicator-case');
+    indicatorCase.setAttribute('data-index', i);
+    if (i == 0) {
+      indicatorCase.classList.add('active');
+    }
     indicatorCase.setAttribute('href', '#');
     indicatorCase.appendChild(indicatorLine);
     // ? НАКОНЕЦ ДОБАВЛЯЮ ПАРТИЮ ГОТОВЫХ РЕБЯТ В РОДИТЕЛЯ
     indicators.appendChild(indicatorCase);
   }
 
+  // const indicator = document.querySelector('.slider__indicator-case.active');
+  // indicator.classList.remove('active');
+
   // TODO АВТО-ПРОКРУТКА СЛАЙДЕРА
   // ? ОПИСЫВАЮ ВРЕМЯ И РАБОТУ ИНТЕРВАЛА
-  const timeShift = 5000;
+  const timeShift = 7500;
   function autoShift() {
     track.classList.add('shifting');
     posInitial = track.offsetLeft;
@@ -158,6 +165,7 @@ function slide() {
       track.style.left = -(1 * slideSize) + "px";
       index = 0;
     }
+
     console.log('go');
   }
   let timer = setInterval(autoShift, timeShift);

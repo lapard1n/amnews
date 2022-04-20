@@ -1,0 +1,261 @@
+
+.main
+  padding: 100px 0 100px
+  display: flex
+  flex-flow: column nowrap
+  flex: 1 1 auto
+  overflow: hidden
+  position: relative
+
+  &__link-up
+    position: fixed
+    width: 45px
+    height: 45px
+    bottom: -100px
+    right: 0
+    z-index: 99
+    opacity: 0
+    background: #FFFFFF
+    border:
+      radius: 50%
+      style: solid
+      width: 3px
+      color: #2d3436
+    transform: translate3d(-80%, -80%, 0)
+    transition: 0.5s
+
+    &.show
+      opacity: 1
+      bottom: 0
+      transition: 0.5s
+
+  &__link-arrow
+    width: 20px
+    height: 20px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate3d(-50%, -30%, 0) rotate(45deg)
+    transform-origin: center
+    transition: top 0.25s linear
+    &::after
+      content: ""
+      width: 20px
+      height: 6px
+      position: absolute
+      background: #2d3436
+      border-radius: 15px
+      transform-origin: center
+    &::before
+      content: ""
+      width: 6px
+      height: 20px
+      position: absolute
+      background: #2d3436
+      border-radius: 15px
+      transform-origin: center
+
+  &__link-up:hover &__link-arrow:first-child
+    top: 35%
+  &__link-up:hover &__link-arrow:last-child
+    top: 65%
+
+.article
+  width: 100%
+  display: flex
+  justify-content: center
+  flex: 1 1 auto
+  position: relative
+  &:nth-child(1)
+    background: rgba(191, 255, 240, 0.9)
+  &:nth-child(2)
+    background: rgba(240, 255, 194, 0.9)
+  &:nth-child(3)
+    background: rgba(255, 228, 192, 0.9)
+  &:nth-child(odd)
+    z-index: 1
+  &:nth-child(even)
+    z-index: 2
+    margin: 50px 0
+
+  &__wrapper
+    width: 100%
+    max-width: 1100px
+    padding: 60px 50px
+    display: flex
+    flex-flow: column nowrap
+    justify-content: space-between
+    position: relative
+    overflow: hidden
+
+  &__title
+    width: -webkit-max-content
+    width: -moz-max-content
+    width: max-content
+    margin-bottom: 10px
+    position: relative
+    letter-spacing: 0.02rem
+    font:
+      weight: 500
+      size: 1.75rem
+    &-img
+      width: 40px
+      position: absolute
+      top: 50%
+      transform: translate3d(25px, -50%, 0) rotate(-25deg)
+    &::after
+      content: ""
+      width: 33.3%
+      height: 2px
+      display: block
+      position: absolute
+      bottom: -5px
+      left: 0
+      background: #000000
+
+  &__content
+    position: relative
+    padding: 15px 25px
+    display: flex
+    align-items: flex-start
+
+  &__info
+    margin-right: 15px
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    align-items: center
+
+  &__image
+    height: 125px
+    width: 125px
+    border-radius: 10px
+    margin-bottom: 5px
+    position: relative
+    overflow: hidden
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25)
+    img
+      width: 100%
+
+  &__panel
+    display: flex
+    justify-content: center
+    align-items: center
+    input
+      width: 20px
+      height: 20px
+      background: none
+      border: none
+    label
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: pointer
+      &:first-child
+        margin-right: 5px
+
+      &:hover #like
+        animation-name: foo
+        animation-duration: 0.5s
+        animation-timing-function: ease-in-out
+        @keyframes foo
+          from
+            transform: translateY(1px)
+          50%
+            transform: translateY(-1px)
+          to
+            transform: translateY(1px)
+
+      &:hover #dislike
+        animation-name: bar
+        animation-duration: 0.5s
+        animation-timing-function: ease-in-out
+        @keyframes bar
+          from
+            transform: translateY(1px)
+          50%
+            transform: translateY(5px)
+          to
+            transform: translateY(1px)
+    font:
+      weight: 300
+      size: 1rem
+
+    #like
+      background: url(../img/chevron-up.svg) no-repeat
+      background-size: 20px
+      transform: translateY(1px)
+
+    #dislike
+      background: url(../img/chevron-down.svg) no-repeat
+      background-size: 20px
+      transform: translateY(1px)
+
+  &__text
+    position: relative
+    margin: 0 10px
+    text-indent: 1.875rem
+    line-height: 1.3rem
+    font:
+      weight: 400
+      size: 1.125rem
+    &:last-child
+      margin-right: 0
+    p
+      margin-bottom: 15px
+      &:last-child
+        margin-bottom: 0
+
+  &__author
+    position: absolute
+    bottom: -25px
+    left: -25px
+    letter-spacing: 0.02rem
+    font:
+      weight: 500
+      size: 1.25rem
+      style: italic
+
+  .bookmark
+    width: 50px
+    position: absolute
+    top: -100px
+    right: 50px
+    transform: translateX(50%)
+    transform: translateY(-50%)
+    transition: transform 0.15s linear
+
+  &__link
+    position: absolute
+    align-self: flex-end
+    bottom: 0
+    right: 0
+    transition: color 0.15s linear
+    font:
+      weight: 500
+      size: 1.25rem
+
+    img
+      width: 25px
+      height: 25px
+      transform: translateX(-5px)
+      transition: width 0.15s linear
+
+    &::after
+      content: ""
+      width: 0
+      height: 2px
+      display: block
+      position: absolute
+      bottom: -5px
+      left: 0
+      background: #000000
+      transition: width 0.15s linear
+
+    &:hover
+      &::after
+        width: 100%
+      img
+        width: 20px
+      & ~ .bookmark
+        transform: translateY(-25%)
