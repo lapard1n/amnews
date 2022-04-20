@@ -27,14 +27,11 @@ body._lock
   background: #FFBBBB
   background-image: url(../img/new-large-triangles.svg)
   overflow: hidden
-
 ::-webkit-scrollbar
   width: 12px
   height: 6px
-
 ::-webkit-scrollbar-track
   background-color: #FFFFFF
-
 ::-webkit-scrollbar-thumb
   border-radius: 100px
   border: 3px solid transparent
@@ -142,13 +139,9 @@ html, body
     &:last-child
       margin-right: 0
     & > a
+      letter-spacing: 1px
       padding: 5px 0 10px 0
       transition: color 0.15s linear
-    &:hover::after
-      width: 100%
-    &:hover .menu__sub-list
-      transform: scale3d(1, 1, 1)
-
 
   &__sub-list
     width: max-content
@@ -684,6 +677,11 @@ html, body
  */
 
 body._pc
+  .menu__uplink
+    &:hover::after
+      width: 100%
+    &:hover .menu__sub-list
+      transform: scale3d(1, 1, 1)
   .menu__downlink:hover
     background-color: #E5A8A8
 

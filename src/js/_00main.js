@@ -166,13 +166,16 @@ burgerMenu.addEventListener('click', function (e) {
   menuDropout.classList.toggle('_active');
 }, false);
 
-// ? УСТАНАВЛИВАЮ ВЫСОТУ ЭЛЕМЕНТЫ ПО ЕГО СОСЕД
+// TODO СТИЛИЗУЮ FOOTER С ПОМОЩЬЮ СКРИПТОВ
+// ? УСТАНАВЛИВАЮ ВЫСОТУ ЭЛЕМЕНТА ПО САМОМУ БОЛЬШОМУ
 const footerLine = document.querySelector(".footer__line");
 const footerInfo = document.querySelector(".footer__info");
 const footerHeight = document.querySelector(".footer__input-case").offsetHeight;
+
 footerLine.style.height = (footerHeight - 70) + "px";
 footerInfo.style.height = footerHeight + "px";
 
+// ? АНИМИРУЮТ LABEL ПРИ ОЧИСТКЕ ПОЛЯ INPUT
 const footerInput = document.querySelectorAll(".footer__input");
 const footerLabel = document.querySelectorAll('.footer__label');
 const footerReset = document.querySelector('buttun.footer__submit');

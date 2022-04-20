@@ -259,19 +259,11 @@ body {
 }
 
 .menu__uplink > a {
+  letter-spacing: 1px;
   padding: 5px 0 10px 0;
   -webkit-transition: color 0.15s linear;
   -o-transition: color 0.15s linear;
   transition: color 0.15s linear;
-}
-
-.menu__uplink:hover::after {
-  width: 100%;
-}
-
-.menu__uplink:hover .menu__sub-list {
-  -webkit-transform: scale3d(1, 1, 1);
-          transform: scale3d(1, 1, 1);
 }
 
 .menu__sub-list {
@@ -1404,6 +1396,15 @@ body {
 
 /* * CSS FOR JS  CODE
  * */
+
+body._pc .menu__uplink:hover::after {
+  width: 100%;
+}
+
+body._pc .menu__uplink:hover .menu__sub-list {
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
 
 body._pc .menu__downlink:hover {
   background-color: #E5A8A8;

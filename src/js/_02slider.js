@@ -5,6 +5,7 @@ const btnPrev = document.querySelector('.slider__control_prev');
 const btnNext = document.querySelector('.slider__control_next');
 const indicators = document.querySelector('.slider__indicators');
 
+// TODO ОСНОВНАЯ ФУНКЦИЯ РАБОТЫ СЛАЙДЕРА
 function slide() {
   let posX1 = 0;
   let posX2 = 0;
