@@ -113,7 +113,7 @@ function slide() {
     allowShift = false;
   }
 
-  // TODO ЗАЦИКЛЕННОСТЬ ПЕРЕХОДА
+  // TODO ЗАЦИКЛЕННОСТЬ ПЕРЕХОДА И СБРОС АНИМАЦИИ
   function checkIndex() {
     track.classList.remove('shifting');
 
@@ -129,6 +129,8 @@ function slide() {
 
     allowShift = true;
   }
+
+  // ! НАСТРОИТЬ РАБОТУ СЛАЙДЕРА НА РАЗНЫХ ТИПАХ УСТРОЙСТВ
 
   // TODO ПЕРЕКЛЮЧЕНИЕ СЛАЙДОВ ПО ИНДИКАТОРАМ
   // ? ИНДИКАТОРЫ ПРОКРУТКИ В ЗАВИСИМОСТИ ОТ КОЛИЧЕСТВА СЛАЙДОВ
@@ -149,8 +151,7 @@ function slide() {
     indicators.appendChild(indicatorCase);
   }
 
-  // const indicator = document.querySelector('.slider__indicator-case.active');
-  // indicator.classList.remove('active');
+
 
   // TODO АВТО-ПРОКРУТКА СЛАЙДЕРА
   // ? ОПИСЫВАЮ ВРЕМЯ И РАБОТУ ИНТЕРВАЛА
