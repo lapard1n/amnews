@@ -29,7 +29,7 @@ const header = document.querySelector('.header');
 const options = { threshold: 1.0 }
 
 const observeCallback = function (entries, observer) {
-  entries.forEach((entry) => {
+  entries.forEach(entry => {
     // ? СВОЙСТВА ОБЪЕКТА IntersectionObserver
     const {
       // ? ДОСТУП К ОТСЛЕЖИВАЕМОМУ ЭЛЕМЕНТУ
